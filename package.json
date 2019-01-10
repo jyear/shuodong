@@ -1,0 +1,22 @@
+{
+    "name": "u",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "devDependencies": {
+        "autoprefixer": "^8.6.5",
+        "gulp": "^3.9.1",
+        "gulp-autoprefixer": "^5.0.0",
+        "gulp-clean-css": "^3.9.4",
+        "gulp-less": "^4.0.1",
+        "gulp-postcss": "^7.0.1",
+        "gulp-uglify": "^3.0.0",
+        "gulp-watch": "^5.0.0",
+        "precss": "^3.1.2"
+    },
+    "scripts": {
+        "build-css": "gulp css&&gulp watch"
+    },
+    "author": "",
+    "license": "ISC"
+}

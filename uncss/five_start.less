@@ -1,0 +1,93 @@
+.five-box {
+    min-height: 100%;
+    background: url("../images/five_bg.jpg") left top no-repeat;
+    background-size: 100% 100%;
+}
+.top {
+    padding-top: 0.6rem;
+    background: url("../images/five_top1.png") left top no-repeat;
+    background-size: 100%;
+    .topimg {
+        width: 1.95rem;
+    }
+    .year {
+        padding-bottom: 0.2rem;
+    }
+}
+.imgbox {
+    text-align: center;
+}
+.container {
+    box-sizing: border-box;
+    padding: 0.3rem 0.4rem;
+    .content {
+        border: 3px solid #f4463e;
+        border-radius: 0.08rem;
+        background: rgba(255, 255, 255, 0.7);
+        overflow: hidden;
+        .ad-img {
+            display: block;
+            img {
+                width: 100%;
+            }
+        }
+        .info {
+            box-sizing: border-box;
+            padding: 0.2rem;
+        }
+    }
+    .input-item {
+        display: flex;
+        align-items: center;
+        padding: 0.1rem 0;
+        .cont {
+            flex: 1;
+        }
+        .name {
+            font-weight: 600;
+            font-size: 0.2rem;
+        }
+        .input {
+            height: 0.32rem;
+            background: #eee7e7;
+            border: none;
+            border-radius: 0.08rem;
+            display: block;
+            outline: none;
+            padding: 0 0.1rem;
+        }
+        .label {
+            display: inline-block;
+            vertical-align: middle;
+            box-sizing: border-box;
+            padding: 0 0.1rem;
+            .txt {
+                font-size: 0.2rem;
+                font-weight: 600;
+                vertical-align: middle;
+            }
+        }
+        .icon {
+            display: inline-block;
+            width: 0.18rem;
+            height: 0.18rem;
+            vertical-align: middle;
+            margin-right: 0.1rem;
+            &.checked {
+                background: url("../images/five_checked.png") left top no-repeat;
+                background-size: 100% 100%;
+            }
+            &.uncheck {
+                background: url("../images/five_uncheck.png") left top no-repeat;
+                background-size: 100% 100%;
+            }
+        }
+    }
+    .submitbtn {
+        padding-top: 0.3rem;
+        text-align: center;
+        img {
+            width: 80%;
+        }
+    }
+}
