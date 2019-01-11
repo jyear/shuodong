@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>抽签</title>
+        <link rel="stylesheet" href="./css/base.css" />
+        <link rel="stylesheet" href="./css/draw_start.css" />
+        <script src="./js/jquery.js"></script>
+        <script src="./js/html2canvas.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="topbox"><img src="./images/draw_m1.png" /></div>
+            <div class="mdbox"><img src="./images/draw_m2.png" /></div>
+            <div class="txt">保持一颗虔诚的心完成以下操作</div>
+            <div class="beginbtn">
+                <img src="./images/draw_btn1.png" id="openStartBtn" />
+            </div>
+        </div>
+        <div class="drawing-box" id="startBox">
+            <img
+                class="drawm3"
+                src="./images/draw_m3.png"
+                id="drawAnimatedBox"
+            />
+            <div class="image-box">
+                <img src="./images/draw_btn2.png" id="beginBtn" />
+            </div>
+        </div>
+        <div class="open-box show" id="openBox">
+            <div class="openshow">
+                <img class="openbg" src="./images/draw_openbg.png" />
+                <img class="openimg" src="./images/draw_open1.png" />
+            </div>
+            <div class="openbtn">
+                <img src="./images/draw_openbtn.png" id="drawOpenBtn" />
+            </div>
+        </div>
+        <script src="./js/draw_start.js"></script>
+    </body>
+</html>

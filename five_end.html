@@ -96,15 +96,27 @@
                 </div>
             </div>
             <div class="footer">
-                <div class="t">长按上图可保存到相册</div>
+                <div class="btnbox">
+                    <div class="t-item">
+                        <img src="./images/save.png" id="saveBtn" />
+                    </div>
+                    <div class="t-item">
+                        <img src="./images/share.png" id="ShareBtn" />
+                    </div>
+                </div>
                 <div class="frash">
-                    <img src="./images/five_frash.png" /><span class="t"
-                        >重新测试</span
-                    >
+                    <img src="./images/five_frash.png" />
+                    <span class="t">重新测试</span>
                 </div>
             </div>
         </div>
-        <div class="rendering" id="renderingBox">正在生成结果...</div>
+        <div id="saveLayerBox" class="save-layer">
+            <div id="imgLayerBox" class="img-layer-box"></div>
+            <div class="tip">长按保存到本地</div>
+        </div>
+        <div class="share-layer" id="shareLayer">
+            <img src="./images/share_info.png" alt="" />
+        </div>
         <script src="./js/five_end.js"></script>
     </body>
 </html>
