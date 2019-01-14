@@ -1,0 +1,111 @@
+html,
+body {
+    background: #fa4d4d url("../images/draw_bg.jpg") left top no-repeat;
+    background-size: 100% 100%;
+}
+.continer {
+    box-sizing: border-box;
+    margin: 0 0.4rem;
+    min-height: 90%;
+    position: relative;
+    .continer-bg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        height: 100%;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .left_tag {
+        position: absolute;
+        left: 0.1rem;
+        top: 0.1rem;
+        width: 0.33rem;
+        img {
+            width: 100%;
+        }
+    }
+    .right_txt {
+        position: absolute;
+        right: 0.1rem;
+        top: 0.1rem;
+        width: 0.2rem;
+        color: #ffe76d;
+        text-shadow: 0 0.01rem 0.03rem #9b0900;
+        line-height: 0.16rem;
+        font-size: 0.16rem;
+    }
+    .more_info {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+        box-sizing: border-box;
+        padding: 0.1rem 0.2rem;
+        display: flex;
+        align-items: center;
+        .img {
+            width: 0.8rem;
+        }
+        .more_text {
+            flex: 1;
+            margin-left: 0.1rem;
+            color: #ffe76d;
+        }
+        .t1 {
+            font-size: 0.16rem;
+            margin-bottom: 0.1rem;
+        }
+    }
+    .drwa_bgtxt {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        box-sizing: border-box;
+        padding-top: 0.6rem;
+        img {
+            width: 60%;
+        }
+    }
+}
+.btn_box {
+    padding: 0.2rem;
+    box-sizing: border-box;
+    text-align: center;
+    .btn {
+        width: 40%;
+        margin: 0 0.1rem;
+    }
+}
+.save_box {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+    box-sizing: border-box;
+    padding: 0.2rem 0.4rem 0.5rem 0.4rem;
+    display: none;
+    &.show {
+        display: block;
+    }
+    .tip {
+        background: rgba(0, 0, 0, 0.9);
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        padding: 0.1rem;
+        box-sizing: border-box;
+        text-align: center;
+        font-size: 0.16rem;
+        color: #ffe76d;
+    }
+}

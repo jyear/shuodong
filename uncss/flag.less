@@ -1,0 +1,104 @@
+@font-face {
+    font-family: fangyuan;
+    src: url("../font/fangyuan.woff") format("woff"),
+        url("../font/fangyuan.ttf") format("truetype");
+}
+@font-face {
+    font-family: fanghei;
+    src: url("../font/fanghei.woff") format("woff"),
+        url("../font/fanghei.ttf") format("truetype");
+}
+html,
+body {
+    font-family: fangyuan;
+}
+.page {
+    display: none;
+    &.show {
+        display: block;
+    }
+}
+.step1 {
+    min-height: 100%;
+    background: url("../images/flag_bg1.jpg") left top no-repeat;
+    background-size: 100% 100%;
+    box-sizing: border-box;
+    padding: 1rem 0.3rem 0 0.3rem;
+
+    .content {
+        background: url("../images/flag_bg2.png") left top no-repeat;
+        background-size: 100% 100%;
+        text-align: center;
+        .text1 {
+            padding: 0.6rem 0;
+            font-size: 0.4rem;
+            color: #26395b;
+        }
+        .days {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .day {
+                color: #ff4b30;
+                font-size: 1rem;
+                font-family: fanghei;
+            }
+            .tag {
+                text-align: left;
+                color: #26395b;
+                .t1 {
+                    font-size: 0.6rem;
+                }
+                .t2 {
+                    font-size: 0.3rem;
+                }
+            }
+        }
+        .time {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: right;
+            padding: 0.3rem;
+            .time-item {
+                margin: 0 0.1rem;
+            }
+            .num {
+                font-size: 0.3rem;
+                color: #ff4b30;
+                display: inline-block;
+                vertical-align: bottom;
+                margin-right: 0.1rem;
+                min-width: 0.4rem;
+            }
+            .txt1 {
+                font-size: 0.2rem;
+                color: #26395b;
+                display: inline-block;
+                vertical-align: bottom;
+            }
+            .txt2 {
+                font-size: 0.16rem;
+                color: #26395b;
+            }
+        }
+        .moretext {
+            padding: 0.3rem 0 0.6rem 0;
+            font-size: 0.24rem;
+            color: #26395b;
+        }
+    }
+    .btn-box {
+        text-align: center;
+        span {
+            display: inline-block;
+            background: #ff9c00;
+            color: #fff;
+            padding: 0.1rem 0.3rem;
+            border-radius: 0.06rem;
+            position: relative;
+            top: -0.28rem;
+            font-size: 0.24rem;
+        }
+    }
+}

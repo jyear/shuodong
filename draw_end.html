@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>解签</title>
+        <link rel="stylesheet" href="./css/base.css" />
+        <link rel="stylesheet" href="./css/draw_end.css" />
+        <script src="./js/jquery.js"></script>
+        <script src="./js/html2canvas.min.js"></script>
+    </head>
+    <body>
+        <div class="continer" id="imgDom">
+            <div class="continer-bg"><img src="./images/draw_bg1.jpg" /></div>
+            <div class="left_tag"><img src="./images/draw_t1.png" /></div>
+            <div class="right_txt">我的新年关键词</div>
+            <div class="more_info">
+                <img class="img" src="./images/draw_qcode.jpg" alt="" />
+                <div class="more_text">
+                    <div class="t1">长按识别二维码</div>
+                    <div class="t2">摇一摇你的新年年签</div>
+                </div>
+            </div>
+            <div class="drwa_bgtxt">
+                <img src="./images/draw_bt1.png" alt="" />
+            </div>
+        </div>
+        <div class="save_box" id="saveBox">
+            <div id="imgLayerBox" class="img-layer-box"></div>
+            <div class="tip">长按图片保存到本地</div>
+        </div>
+        <div class="share-layer" id="shareLayer">
+            <img src="./images/share_info.png" alt="" />
+        </div>
+        <div class="btn_box">
+            <img class="btn" src="./images/draw_save.png" id="saveBtn" />
+            <img class="btn" src="./images/draw_share.png" id="shareBtn" />
+        </div>
+        <script src="./js/draw_end.js"></script>
+    </body>
+</html>
