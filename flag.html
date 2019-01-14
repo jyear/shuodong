@@ -49,21 +49,40 @@
                     向崭新的一年迈出第一步吧
                 </div>
             </div>
-            <div class="btn-box"><span>立Flag</span></div>
+            <div class="btn-box"><span id="goStep2">立Flag</span></div>
         </div>
         <div class="step2 page" id="step2">
             <div class="top">
-                <div class="top-info">已选：0</div>
+                <div class="top-info">
+                    <div class="tab-header" id="tabHeader">
+                        已选：<span id="checkedNumber"></span>
+                    </div>
+                </div>
                 <span class="next-btn">下一步</span>
             </div>
-            <div class="tab checktab" id="tab1">
-                <div class="checktab-item">
-                    <div class="text">222</div>
-                    <div class="checkbox">2</div>
+            <div class="tab" id="tab1">
+                <div class="checktab" id="checkBox">
+                    <!-- <div class="checktab-item">
+                        <div class="text">222</div>
+                        <div class="checkbox">
+                            <img src="./images/flag_check.png" />
+                        </div>
+                    </div> -->
                 </div>
-                <div class="checktab-item">22</div>
-                <div class="checktab-item">22</div>
-                <div class="checktab-item">22</div>
+                <div class="change-box">
+                    <span class="change-btn">换一批</span>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="inputBox" /> <button>添加</button>
+                </div>
+            </div>
+            <div class="tab" id="tab2">
+                <div class="checked-box" id="checkedBox">
+                    <!-- <div class="checked-item">
+                        <div class="text">222</div>
+                        <div class="delete">x</div>
+                    </div> -->
+                </div>
             </div>
         </div>
         <script src="./js/flag.js"></script>
