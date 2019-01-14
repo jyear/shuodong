@@ -18,13 +18,18 @@ function setTime() {
 var time = setTime();
 var renderObj = {
     show: "step1",
-    date: time
+    date: time,
+    showTab: "tab1"
 };
 var newObject = {};
 var lookRenderObj = function() {
     function objectHandler(obj, key) {
         switch (key) {
             case "show":
+                $(".page").removeClass("show");
+                $("#" + obj[key]).addClass("show");
+                break;
+            case "showTab":
                 $(".page").removeClass("show");
                 $("#" + obj[key]).addClass("show");
                 break;
@@ -56,7 +61,6 @@ var lookRenderObj = function() {
 };
 var flagData = new lookRenderObj();
 $(function() {
-    //时间显示
     setInterval(
         function() {
             renderObj.date = setTime();
