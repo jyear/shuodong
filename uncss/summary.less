@@ -1,13 +1,11 @@
 @font-face {
     font-family: fangyuan;
-    src: url("../font/fangyuan.woff") format("woff"),
-        url("../font/fangyuan.ttf") format("truetype");
+    src: url("../font/fangyuan.woff") format("woff"), url("../font/fangyuan.ttf") format("truetype");
 }
 
 @font-face {
     font-family: fanghei;
-    src: url("../font/fanghei.woff") format("woff"),
-        url("../font/fanghei.ttf") format("truetype");
+    src: url("../font/fanghei.woff") format("woff"), url("../font/fanghei.ttf") format("truetype");
 }
 
 html,
@@ -97,6 +95,11 @@ body {
             width: 100%;
         }
     }
+    .input-box-bg {
+        position: relative;
+        height: 100%;
+        width: 100%;
+    }
     .input-box {
         position: fixed;
         left: 0;
@@ -121,6 +124,7 @@ body {
                 position: relative;
                 display: flex;
                 align-items: stretch;
+                z-index: 100;
             }
             .input {
                 display: block;

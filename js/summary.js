@@ -98,19 +98,23 @@ $(function() {
             );
         }
     });
-    $("#InputBoxBtn").on("click", function() {
+    $("#InputBoxBG").on("click", function() {
+        $("#InputBox").removeClass("show");
+    });
+
+    $("#InputBoxBtn").on("click", function(e) {
         var _val = $("#InputBoxContent").val();
         if ($("#groupContainer .group-item.edit").length > 0) {
             $("#groupContainer .group-item.edit")
                 .html(_val)
                 .removeClass("edit");
         } else {
-            $('<div  class="group-item">' + _val + "</div>").insertBefore(
+            $('<div  class="group-item cur">' + _val + "</div>").insertBefore(
                 $("#groupContainer .group-add.edit")
             );
             $("#groupContainer .group-add.edit").removeClass("edit");
-            $("#InputBoxContent").val("");
         }
+        $("#InputBoxContent").val("");
         $("#InputBox").removeClass("show");
     });
     $("#groupContainer").on("touchend", ".group-item", function(e) {
