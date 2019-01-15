@@ -1,11 +1,13 @@
 @font-face {
     font-family: fangyuan;
-    src: url("../font/fangyuan.woff") format("woff"), url("../font/fangyuan.ttf") format("truetype");
+    src: url("../font/fangyuan.woff") format("woff"),
+        url("../font/fangyuan.ttf") format("truetype");
 }
 
 @font-face {
     font-family: fanghei;
-    src: url("../font/fanghei.woff") format("woff"), url("../font/fanghei.ttf") format("truetype");
+    src: url("../font/fanghei.woff") format("woff"),
+        url("../font/fanghei.ttf") format("truetype");
 }
 
 html,
@@ -116,20 +118,27 @@ body {
         position: relative;
         &.show {
             .tab-header {
+                color: #26395b;
                 border-top: 2px solid #ecc28f;
                 border-left: 2px solid #ecc28f;
                 border-right: 2px solid #ecc28f;
                 border-bottom: 2px solid #f8f8f8;
                 border-radius: 0.06rem 0.06rem 0 0;
                 background: #f8f8f8;
+                &:after {
+                    background: url("../images/close.png") center center
+                        no-repeat;
+                    background-size: 100% auto;
+                    transform: rotate(180deg);
+                }
             }
             &:after {
                 border-bottom: none;
             }
         }
         .tab-header {
-            padding: 0.1rem 0.2rem;
-            font-size: 0.16rem;
+            padding: 0.1rem 0.4rem 0.1rem 0.1rem;
+            font-size: 0.27rem;
             display: inline-block;
             position: relative;
             top: 0.02rem;
@@ -137,6 +146,17 @@ body {
             border-left: 2px solid transparent;
             border-right: 2px solid transparent;
             border-bottom: 2px solid transparent;
+            color: #6d482f;
+            &:after {
+                content: "";
+                position: absolute;
+                right: 0.1rem;
+                top: 0.15rem;
+                width: 0.2rem;
+                height: 0.2rem;
+                background: url("../images/open.png") center center no-repeat;
+                background-size: 100% auto;
+            }
         }
         &:after {
             content: "";
@@ -160,6 +180,9 @@ body {
     }
     .tab {
         display: none;
+        &#tab1 {
+            padding-top: 0.3rem;
+        }
         &.show {
             display: block;
         }
@@ -167,6 +190,7 @@ body {
     .checktab {
         display: flex;
         flex-wrap: wrap;
+        color: #6d482f;
         .checktab-item {
             flex: 1 0 46%;
             padding: 0.1rem 0.1rem 0.1rem 0;
@@ -236,11 +260,224 @@ body {
             padding: 0.1rem;
             .text {
                 flex: 1;
+                color: #6d482f;
             }
             .delete {
                 color: #26395b;
                 font-size: 0.2rem;
             }
         }
+    }
+}
+.step3 {
+    background: url("../images/flag_bg3.jpg") left top no-repeat;
+    background-size: 100% 100%;
+    min-height: 100%;
+    box-sizing: border-box;
+    padding: 0.7rem 0.2rem;
+    .header {
+        text-align: right;
+        box-sizing: border-box;
+        padding: 0.1rem;
+        font-size: 0.22rem;
+        color: #26395b;
+        border-bottom: 1px dashed #dcd0c2;
+    }
+    .input-box {
+        box-sizing: border-box;
+        padding: 0.2rem 0.1rem;
+        input {
+            background: #f1ebe3;
+            color: #26395b;
+            box-sizing: border-box;
+            width: 100%;
+            padding: 0.1rem 0.1rem;
+            border: none;
+            outline: none;
+            border-radius: 0.04rem;
+            font-size: 0.2rem;
+            font-weight: 600;
+            font-family: fangyuan;
+        }
+    }
+    .tip {
+        text-align: center;
+        font-size: 0.12rem;
+        color: #26395b;
+        margin-bottom: 0.2rem;
+    }
+    .txt {
+        font-size: 0.2rem;
+        color: #6d482f;
+        margin-bottom: 0.15rem;
+    }
+    .gonext {
+        box-sizing: border-box;
+        padding: 0.2rem 0;
+        text-align: center;
+        border-top: 1px dashed #dcd0c2;
+        .gonext-btn {
+            display: inline-block;
+            text-align: center;
+            background: #ff9c00;
+            color: #fff;
+            padding: 0.1rem 0;
+            width: 1.18rem;
+            border-radius: 0.08rem;
+            font-size: 0.16rem;
+        }
+    }
+}
+.step5 {
+    min-height: 100%;
+    background: url("../images/flag_bg4.jpg") left top no-repeat;
+    background-size: 100% 100%;
+    box-sizing: border-box;
+    padding: 0.07rem 0.3rem;
+    .render-img {
+        box-sizing: border-box;
+        border: 2px solid #b11121;
+        border-radius: 0.04rem;
+        overflow: hidden;
+        .render-info {
+            position: relative;
+            min-height: 4rem;
+            background: rgba(255, 255, 255, 0.7);
+            .render-bg {
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .rt-img {
+                text-align: right;
+                position: relative;
+                z-index: 1;
+                box-sizing: border-box;
+                padding: 0.1rem 0.1rem 0 0;
+                img {
+                    width: 50%;
+                }
+            }
+            .flag-list {
+                box-sizing: border-box;
+                padding: 0.3rem 0 1rem 0;
+                .item {
+                    color: #26395b;
+                    padding: 0.05rem 0.2rem;
+                    box-sizing: border-box;
+                    font-size: 0.18rem;
+                }
+            }
+            .user-info {
+                position: absolute;
+                right: 0.1rem;
+                bottom: 0.2rem;
+                text-align: right;
+                color: #26395b;
+                font-size: 0.2rem;
+                line-height: 0.24rem;
+                z-index: 1;
+                .name {
+                    font-weight: 600;
+                }
+                .time {
+                    font-size: 0.16rem;
+                }
+            }
+            .footer-bg {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                img {
+                    width: 100%;
+                }
+            }
+            .top-bg {
+                position: absolute;
+                top: 0;
+                width: 100%;
+                img {
+                    width: 60%;
+                }
+            }
+        }
+        .render-intro {
+            background: #7c0813;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+            padding: 0.1rem 0.3rem;
+            // font-family: Arial, Helvetica, sans-serif;
+            .img {
+                width: 0.8rem;
+                margin-right: 0.1rem;
+            }
+            .t1 {
+                margin-bottom: 0.05rem;
+            }
+        }
+    }
+    .more-btn {
+        display: flex;
+        align-items: center;
+        padding: 0.2rem 0;
+        .btn {
+            flex: 1;
+            text-align: center;
+            font-size: 0.26rem;
+            display: block;
+            padding: 0.1rem 0;
+            color: #fff;
+            border-radius: 0.08rem;
+            &.save {
+                margin-right: 0.1rem;
+                background: #b00e1e;
+            }
+            &.share {
+                background: #26395b;
+            }
+        }
+    }
+    .more-text {
+        text-align: center;
+        padding-bottom: 0.2rem;
+        color: #26395b;
+        font-size: 0.15rem;
+    }
+}
+.save_box {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+    box-sizing: border-box;
+    padding: 0.2rem 0.4rem 0.5rem 0.4rem;
+    display: none;
+    &.show {
+        display: block;
+    }
+    .tip {
+        background: rgba(0, 0, 0, 0.9);
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        padding: 0.1rem;
+        box-sizing: border-box;
+        text-align: center;
+        font-size: 0.16rem;
+        color: #ffe76d;
     }
 }

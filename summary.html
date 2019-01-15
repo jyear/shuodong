@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+        <title>年终总结</title>
+        <link rel="stylesheet" href="./css/base.css" />
+        <link rel="stylesheet" href="./css/summary.css" />
+        <script src="./js/jquery.js"></script>
+        <script src="./js/html2canvas.min.js"></script>
+    </head>
+    <body>
+        <div class="step1 page" id="step1">
+            <img src="./images/summary_bg1.jpg" usemap="#planetmap" alt="" />
+            <map name="planetmap" id="planetmap">
+                <area
+                    shape="rect"
+                    coords=""
+                    style="outline:none"
+                    href="javascript:goStep2Btn()"
+                    id="goStep2Btn"
+                />
+            </map>
+        </div>
+        <div class="step2 page" id="step2">
+            <img class="topimg" src="./images/summary_bg2.png" alt="" />
+            <div id="groupContainer">
+                <div class="group">
+                    <div class="group-title">生活</div>
+                    <div class="group-content">
+                        <div class="group-item">张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-add">+</div>
+                    </div>
+                </div>
+                <div class="group">
+                    <div class="group-title">学习</div>
+                    <div class="group-content">
+                        <div class="group-item">张三丰张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-add">+</div>
+                    </div>
+                </div>
+                <div class="group">
+                    <div class="group-title">工作</div>
+                    <div class="group-content">
+                        <div class="group-item">张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-add">+</div>
+                    </div>
+                </div>
+                <div class="group">
+                    <div class="group-title">情感</div>
+                    <div class="group-content">
+                        <div class="group-item">张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-item">张三丰</div>
+                        <div class="group-add">+</div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <img
+                    src="./images/summary_bg3.png"
+                    id="goStep3Btn"
+                    class="footer-img"
+                />
+            </div>
+        </div>
+
+        <div class="step3 page" id="step3">
+            <div class="renderimg" id="willRenderImage">
+                <img src="./images/summary_s1.jpg" class="top" />
+                <div class="header">
+                    <img src="./images/summary_s2.png" alt="" />
+                </div>
+                <div class="content">
+                    <div class="text-box">
+                        <div class="bg-blue"></div>
+                        <div class="inner-box" id="innerBox">
+                            <div class="txt1">
+                                <i class="circle"></i>
+                                <span class="t">击败了全国90%的用户</span>
+                                <i class="circle"></i>
+                            </div>
+                            <div class="list" id="innerList">
+                                <!-- <div class="summary-item">
+                                    <div class="st">2.323232</div>
+                                    <div class="si">
+                                        <img src="./images/summary_s3.png" />
+                                    </div>
+                                </div> -->
+                            </div>
+                            <div class="more-info">
+                                <img
+                                    class="qcode"
+                                    src="./images/draw_qcode.jpg"
+                                />
+                                <div class="qt">
+                                    <div class="q1">长按二维码</div>
+                                    <div>写下你的年终总结</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-box">
+                <span class="btn save" id="saveBtn">保存成绩单</span>
+                <span class="btn share" id="shareBtn">分享成绩单</span>
+            </div>
+            <div class="save_box" id="saveBox">
+                <div id="imgLayerBox" class="img-layer-box"></div>
+                <div class="tip">长按图片保存到本地</div>
+            </div>
+            <div class="share-layer" id="shareLayer">
+                <img src="./images/share_info.png" alt="" />
+            </div>
+        </div>
+
+        <script src="./js/summary.js"></script>
+    </body>
+</html>
