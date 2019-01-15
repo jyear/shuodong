@@ -81,40 +81,49 @@ Array.prototype.distinct = function() {
 $(function() {
     //renderData.show = "step3";
     countStep1Btn();
-    $("#step2").on("click", function() {
-        $(".group-item")
-            .attr("contentEditable", false)
-            .removeClass("edit");
-    });
-    $("#groupContainer").on("click", ".group-item", function() {
-        $(this).toggleClass("cur");
-    });
     $("#groupContainer").on("touchstart", ".group-item", function(e) {
+        e.preventDefault();
         e.stopPropagation();
+        $(this).toggleClass("cur");
         if (!timer) {
             timer = setTimeout(
                 function() {
-                    $(this).attr("contentEditable", true);
                     $(this)
                         .addClass("edit")
                         .addClass("cur");
+                    $("#InputBoxContent").val($(this).html());
+                    $("#InputBox").addClass("show");
                 }.bind(this),
                 1000
             );
         }
     });
+    $("#InputBoxBtn").on("click", function() {
+        var _val = $("#InputBoxContent").val();
+        if ($("#groupContainer .group-item.edit").length > 0) {
+            $("#groupContainer .group-item.edit")
+                .html(_val)
+                .removeClass("edit");
+        } else {
+            $('<div  class="group-item">' + _val + "</div>").insertBefore(
+                $("#groupContainer .group-add.edit")
+            );
+            $("#groupContainer .group-add.edit").removeClass("edit");
+            $("#InputBoxContent").val("");
+        }
+        $("#InputBox").removeClass("show");
+    });
     $("#groupContainer").on("touchend", ".group-item", function(e) {
+        e.preventDefault();
         e.stopPropagation();
         if (timer) {
             clearTimeout(timer);
             timer = null;
-        } else {
-            $(this).toggleClass("cur");
         }
     });
     $("#groupContainer").on("click", ".group-add", function() {
-        var str = '<div class="group-item">长按输入内容</div>';
-        $(str).insertBefore($(this));
+        $(this).addClass("edit");
+        $("#InputBox").addClass("show");
     });
     $("#goStep3Btn").on("click", function() {
         var list = $("#groupContainer .group-item.cur");

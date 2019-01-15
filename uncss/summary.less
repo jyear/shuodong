@@ -14,6 +14,7 @@ html,
 body {
     font-family: fanghei;
 }
+
 .page {
     min-height: 100%;
     display: none;
@@ -21,6 +22,7 @@ body {
         display: block;
     }
 }
+
 .step1 {
     width: 100%;
     height: 100%;
@@ -29,6 +31,7 @@ body {
         height: 100%;
     }
 }
+
 .step2 {
     background: #1b1732;
     overflow: auto;
@@ -94,16 +97,63 @@ body {
             width: 100%;
         }
     }
+    .input-box {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        display: none;
+        &.show {
+            display: block;
+        }
+        .input-content {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 80%;
+            height: 60px;
+            .input-layer {
+                position: relative;
+                display: flex;
+                align-items: stretch;
+            }
+            .input {
+                display: block;
+                border: none;
+                box-sizing: border-box;
+                outline: none;
+                border-radius: 0.04rem;
+                background: #fff;
+                padding: 0.1rem;
+                font-size: 0.14rem;
+                flex: 1;
+                margin-right: 0.1rem;
+            }
+            .sure-btn {
+                color: #fff;
+                background: #0378d8;
+                font-size: 0.14rem;
+                padding: 0.1rem 0.15rem;
+                display: block;
+                height: 100%;
+                border-radius: 0.04rem;
+            }
+        }
+    }
 }
+
 .step3 {
     position: relative;
     overflow: auto;
     background: #d93534;
     .renderimg {
         position: relative;
-        background: #d93534;
-
-        // display: flex;
+        background: #d93534; // display: flex;
         // flex-flow: column;
         // align-items: stretch;
     }
@@ -120,13 +170,11 @@ body {
         }
     }
     .content {
-        position: relative;
-        // flex: 1;
+        position: relative; // flex: 1;
         box-sizing: border-box;
         padding: 0 0.2rem 0.6rem 0.2rem;
         .text-box {
-            position: relative;
-            // background: #fff;
+            position: relative; // background: #fff;
             z-index: 2;
             min-height: 100%;
         }
@@ -240,6 +288,7 @@ body {
         }
     }
 }
+
 .save_box {
     position: fixed;
     left: 0;
