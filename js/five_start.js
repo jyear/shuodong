@@ -16,6 +16,12 @@ $(function() {
         }
     });
     $("#submitBtn").on("click", function() {
-        console.log(sex);
+        var name = $("#userName")
+            .val()
+            .trim();
+        if (!name || name.length <= 0) {
+            return;
+        }
+        window.location.href = "./five_end.html?name=" + encodeURI(name);
     });
 });
