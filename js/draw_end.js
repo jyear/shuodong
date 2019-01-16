@@ -1,4 +1,12 @@
+function setQrcode() {
+    new QRCode(
+        document.getElementById("qrcodeBox"),
+        window.location.href.replace("_end", "_start")
+    );
+}
+
 $(function() {
+    setQrcode();
     var randomNumber = Math.floor(Math.random() * 12);
     var img = "./images/draw_" + randomNumber + ".png";
     $("#drawText").html('<img src="' + img + '"/>');
