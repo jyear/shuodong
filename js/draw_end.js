@@ -1,4 +1,7 @@
 $(function() {
+    var randomNumber = Math.floor(Math.random() * 12);
+    var img = "./images/draw_" + randomNumber + ".png";
+    $("#drawText").html('<img src="' + img + '"/>');
     $("#saveBtn").on("click", function() {
         var saveBox = $("#saveBox");
         $("html,body").css({

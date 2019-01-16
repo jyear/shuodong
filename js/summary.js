@@ -79,7 +79,7 @@ Array.prototype.distinct = function() {
     return arr;
 };
 $(function() {
-    //renderData.show = "step3";
+    renderData.show = "step2";
     countStep1Btn();
     $("#groupContainer").on("touchstart", ".group-item", function(e) {
         e.preventDefault();
