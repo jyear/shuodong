@@ -150,7 +150,9 @@ var flagDataList = [
     { text: "学会滑雪", isChecked: false },
     { text: "去海上冲浪", isChecked: false }
 ];
-
+function setQrcode() {
+    new QRCode(document.getElementById("qrcodeBox"), window.location.href);
+}
 function setTime() {
     var now = new Date();
     var to = new Date("2019-2-4 23:59:59");
@@ -327,6 +329,7 @@ function getRandomItem(array) {
 
 var flagData = new lookRenderObj();
 $(function() {
+    setQrcode();
     renderObj.tabData = getRandomList();
     setInterval(
         function() {

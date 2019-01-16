@@ -46,6 +46,9 @@ var renderData = new RenderData({
         show: "step1"
     }
 });
+function setQrcode() {
+    new QRCode(document.getElementById("qrcodeBox"), window.location.href);
+}
 var countStep1Btn = function() {
     var w = document.body.clientWidth;
     var h = document.body.clientHeight;
@@ -79,8 +82,9 @@ Array.prototype.distinct = function() {
     return arr;
 };
 $(function() {
-    renderData.show = "step2";
+    //renderData.show = "step2";
     countStep1Btn();
+    setQrcode();
     $("#groupContainer").on("touchstart", ".group-item", function(e) {
         e.preventDefault();
         e.stopPropagation();
