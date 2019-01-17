@@ -462,6 +462,7 @@ $(function() {
     $("#step3Btn").on("click", function() {
         var _value = $("#userNameInput")[0].value.trim();
         if (_value.length <= 0) {
+            alert("请输入你的名字");
             return;
         }
         renderObj.show = "step5";
@@ -479,6 +480,7 @@ $(function() {
     });
     $("#step2Btn").on("click", function() {
         if (renderObj.checkedData.length <= 0) {
+            alert("请选择你要立的Flag!");
             return;
         }
         renderObj.show = "step3";

@@ -20,6 +20,7 @@ $(function() {
             .val()
             .trim();
         if (!name || name.length <= 0) {
+            alert("姓名不能为空！");
             return;
         }
         window.location.replace("./five_end.html?name=" + encodeURI(name));

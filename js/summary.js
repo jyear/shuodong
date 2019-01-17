@@ -182,6 +182,7 @@ $(function() {
             stringArr.push(text);
         });
         if (!stringArr || stringArr.length <= 0) {
+            alert("请选择你的总结");
             return;
         }
         stringArr.distinct().map(function(item, index) {
