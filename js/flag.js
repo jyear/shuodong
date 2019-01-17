@@ -155,14 +155,14 @@ function setQrcode() {
 }
 function setTime() {
     var now = new Date();
-    var to = new Date("2019-2-4 23:59:59");
+    var to = new Date("2019/02/04 23:59:59");
     var s = to.getTime() - now.getTime();
     var res = {};
     let day = s / (1000 * 60 * 60 * 24);
-    res.day = Math.floor(day);
-    res.hours = Math.floor((s / (1000 * 60 * 60)) % 24);
-    res.mins = Math.floor((s / (1000 * 60)) % 60);
-    res.secs = Math.floor((s / 1000) % 60);
+    res.day = Math.floor(day, 10);
+    res.hours = Math.floor((s / (1000 * 60 * 60)) % 24, 10);
+    res.mins = Math.floor((s / (1000 * 60)) % 60, 10);
+    res.secs = Math.floor((s / 1000) % 60, 10);
     res.day = res.day > 10 ? res.day : "0" + res.day;
     res.hours = res.hours >= 10 ? res.hours : "0" + res.hours;
     res.mins = res.mins >= 10 ? res.mins : "0" + res.mins;
@@ -378,7 +378,6 @@ $(function() {
                 item.isChecked = false;
             }
         });
-        console.log(renderList);
         renderObj.tabData = JSON.parse(JSON.stringify(renderList));
     });
     $("#changeBtn").on("click", function() {
@@ -410,6 +409,7 @@ $(function() {
         });
         $("#inputBox").val("");
         renderObj.checkedData = JSON.parse(JSON.stringify(list));
+        document.activeElement.scrollIntoViewIfNeeded(true);
     });
     //生成图片
     $("#saveBtn").on("click", function() {

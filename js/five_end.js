@@ -134,4 +134,7 @@ $(function() {
             });
         }
     });
+    $("#frashBtn").on("click", function() {
+        window.location.replace("./five_start.html");
+    });
 });

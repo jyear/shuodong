@@ -22,6 +22,6 @@ $(function() {
         if (!name || name.length <= 0) {
             return;
         }
-        window.location.href = "./five_end.html?name=" + encodeURI(name);
+        window.location.replace("./five_end.html?name=" + encodeURI(name));
     });
 });
