@@ -14,6 +14,12 @@ var RenderData = (function($) {
             case "show":
                 $(".page").removeClass("show");
                 $("#" + obj[key]).addClass("show");
+                if (obj[key] == "step3") {
+                    $("html,body").css("background", "#d93534");
+                }
+                if (obj[key] == "step2") {
+                    $("html,body").css("background", "#1b1732");
+                }
                 break;
             default:
                 break;
@@ -81,29 +87,53 @@ Array.prototype.distinct = function() {
     }
     return arr;
 };
+var scrollTopWhenOpenInput = 0;
+var isCanClose = true;
+// $(document).ready(function() {
+//     function stopScrolling(touchEvent) {
+//         touchEvent.preventDefault();
+//     }
+//     document.addEventListener("touchstart", stopScrolling, false);
+//     document.addEventListener("touchmove", stopScrolling, false);
+// });
+
 $(function() {
-    //renderData.show = "step2";
     countStep1Btn();
     setQrcode();
-    $("#groupContainer").on("touchstart", ".group-item", function(e) {
-        e.preventDefault();
-        e.stopPropagation();
+    $("#groupContainer").on("click", ".group-item", function(e) {
         $(this).toggleClass("cur");
+    });
+    $("#groupContainer").on("touchstart", ".group-item", function(e) {
+        setTimeout(function() {
+            e.stopPropagation();
+            e.preventDefault();
+        }, 350);
         if (!timer) {
             timer = setTimeout(
                 function() {
+                    isCanClose = false;
                     $(this)
                         .addClass("edit")
                         .addClass("cur");
                     $("#InputBoxContent").val($(this).html());
+                    scrollTopWhenOpenInput = $("#step2").scrollTop();
                     $("#InputBox").addClass("show");
+                    setTimeout(function() {
+                        isCanClose = true;
+                    }, 1000);
                 }.bind(this),
                 1000
             );
         }
     });
     $("#InputBoxBG").on("click", function() {
+        if (!isCanClose) {
+            return;
+        }
         $("#InputBox").removeClass("show");
+        $(".group-item").removeClass("edit");
+        $("#groupContainer .group-add").removeClass("edit");
+        $("#step2").scrollTop(scrollTopWhenOpenInput);
     });
 
     $("#InputBoxBtn").on("click", function(e) {
@@ -119,18 +149,27 @@ $(function() {
             $("#groupContainer .group-add.edit").removeClass("edit");
         }
         $("#InputBoxContent").val("");
+        //var winH = document.body.clientHeight;
+        document.activeElement.scrollIntoViewIfNeeded(true);
+        $("#step2").scrollTop(scrollTopWhenOpenInput);
+        //.css("height", winH + "px");
         $("#InputBox").removeClass("show");
     });
     $("#groupContainer").on("touchend", ".group-item", function(e) {
-        e.preventDefault();
-        e.stopPropagation();
+        setTimeout(function() {
+            e.stopPropagation();
+            e.preventDefault();
+        }, 350);
         if (timer) {
             clearTimeout(timer);
             timer = null;
         }
     });
     $("#groupContainer").on("click", ".group-add", function() {
+        isCanClose = true;
         $(this).addClass("edit");
+        scrollTopWhenOpenInput = $("#step2").scrollTop();
+        document.activeElement.scrollIntoViewIfNeeded(true);
         $("#InputBox").addClass("show");
     });
     $("#goStep3Btn").on("click", function() {
@@ -167,7 +206,7 @@ $(function() {
     $("#saveBtn").on("click", function(e) {
         e.stopPropagation();
         var saveBox = $("#saveBox");
-        $("html,body").css({
+        $("html,body,#step3").css({
             overflow: "hidden"
         });
         var imglayer = $("#imgLayerBox");

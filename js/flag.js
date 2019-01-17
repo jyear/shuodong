@@ -408,6 +408,7 @@ $(function() {
         list.push({
             text: _value.trim()
         });
+        $("#inputBox").val("");
         renderObj.checkedData = JSON.parse(JSON.stringify(list));
     });
     //生成图片
