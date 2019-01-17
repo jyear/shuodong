@@ -6,9 +6,14 @@ body {
 
 .continer {
     box-sizing: border-box;
-    margin: 0 0.4rem;
-    min-height: 85%;
+    margin: 0 0.2rem;
     position: relative;
+    padding-bottom: 1rem;
+    min-height: 85%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
     .continer-bg {
         position: absolute;
         left: 0;
@@ -72,9 +77,10 @@ body {
     .drwa_bgtxt {
         position: relative;
         z-index: 10;
-        text-align: center;
         box-sizing: border-box;
-        padding-top: 0.6rem;
+        height: 100%;
+        padding: 0.2rem 0;
+        text-align: center;
         img {
             width: 60%;
         }

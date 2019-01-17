@@ -12,6 +12,6 @@ $(function() {
         }, 2000);
     });
     $("#drawOpenBtn").on("click", function() {
-        window.location.href = "./draw_end.html";
+        window.location.replace("./draw_end.html");
     });
 });
