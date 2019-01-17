@@ -134,6 +134,7 @@ $(function() {
         $(".group-item").removeClass("edit");
         $("#groupContainer .group-add").removeClass("edit");
         $("#step2").scrollTop(scrollTopWhenOpenInput);
+        document.activeElement.scrollIntoViewIfNeeded(true);
     });
 
     $("#InputBoxBtn").on("click", function(e) {
