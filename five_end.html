@@ -7,7 +7,7 @@
         <title>2019会发生得五件事</title>
         <link rel="stylesheet" href="./css/base.css" />
         <link rel="stylesheet" href="./css/five_end.css" />
-        <script src="./js/jquery.js"></script>
+        <script src="https://cdn.bootcss.com/jquery/1.12.3/jquery.slim.min.js"></script>
         <script src="./js/qrcode.min.js"></script>
         <script src="./js/html2canvas.min.js"></script>
     </head>
@@ -75,5 +75,16 @@
             <img src="./images/share_info.png" alt="" />
         </div>
         <script src="./js/five_end.js"></script>
+        <script>
+            var _mtac = {};
+            (function() {
+                var mta = document.createElement("script");
+                mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
+                mta.setAttribute("name", "MTAH5");
+                mta.setAttribute("sid", "500667766");
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(mta, s);
+            })();
+        </script>
     </body>
 </html>
