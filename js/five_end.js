@@ -56,10 +56,52 @@ function getQuery() {
     return res;
 }
 function setQrcode() {
-    new QRCode(
-        document.getElementById("qrcodeBox"),
-        window.location.href.replace("_end", "_start")
-    );
+    new QRCode(document.getElementById("qrcodeBox"), {
+        text: window.location.href.replace("_end", "_start"),
+        width: 76,
+        height: 76
+    });
+    html2canvas(document.querySelector("#showImgBox"), {
+        allowTaint: true,
+        async: false,
+        backgroundColor: "#f0dec1",
+        scale: 3,
+        dpi: window.devicePixelRatio * 2
+    }).then(function(canvas) {
+        var context = canvas.getContext("2d");
+        context.mozImageSmoothingEnabled = false;
+        context.webkitImageSmoothingEnabled = false;
+        context.msImageSmoothingEnabled = false;
+        context.imageSmoothingEnabled = false;
+        var height = canvas.height;
+        var width = canvas.width;
+        context.clearRect(0, height - 2, width, height);
+        var img = new Image();
+        img.src = canvas.toDataURL("image/jpeg");
+        img.alt = "新年五件事";
+        img.className = "canvasimg";
+        img.onload = function() {
+            document.querySelector("#imgLayerBox").innerHTML = "";
+            document.querySelector("#imgLayerBox").appendChild(img);
+            console.log($);
+            $.ajax({
+                type: "post",
+                url: "http://app.yjmob.com/api.php",
+                headers: {
+                    "Access-Control-Allow-Origin": "*"
+                },
+                data: {
+                    title: "2019会发生的五件事五件事",
+                    desc: "2019会发生的五件事五件事",
+                    image: img.src
+                },
+                function(res) {
+                    console.log(res);
+                    //window.history.replaceState(null, "五件事", "./five_start.html");
+                }
+            });
+        };
+    });
 }
 $(function() {
     setQrcode();
@@ -69,11 +111,12 @@ $(function() {
     if (window.localStorage.getItem(encodeURI(name)) != undefined) {
         randomNumber = window.localStorage.getItem(encodeURI(name));
     } else {
-        randomNumber = Math.floor(Math.random() * (data.length + 1));
+        randomNumber = Math.floor(Math.random() * Object.keys(data).length);
         window.localStorage.setItem(encodeURI(name), randomNumber);
     }
 
     var renderDom = [];
+
     data[randomNumber].map(function(item, index) {
         renderDom.push(
             '<div class="over-item">' +
@@ -102,6 +145,7 @@ $(function() {
             overflow: "auto"
         });
     });
+
     $("#shareLayer").on("click", function() {
         $(this).removeClass("show");
     });
@@ -115,34 +159,9 @@ $(function() {
         });
         var imglayer = $("#imgLayerBox");
         if (imglayer.html().length <= 0) {
-            html2canvas(document.querySelector("#showImgBox"), {
-                allowTaint: true,
-                async: false,
-                backgroundColor: "#f0dec1",
-                scale: 3,
-                dpi: window.devicePixelRatio * 2
-            }).then(function(canvas) {
-                var context = canvas.getContext("2d");
-                context.mozImageSmoothingEnabled = false;
-                context.webkitImageSmoothingEnabled = false;
-                context.msImageSmoothingEnabled = false;
-                context.imageSmoothingEnabled = false;
-                var height = canvas.height;
-                var width = canvas.width;
-                context.clearRect(0, height - 2, width, height);
-                var img = new Image();
-                img.src = canvas.toDataURL("image/jpeg");
-                img.alt = "新年五件事";
-                img.className = "canvasimg";
-                img.onload = function() {
-                    document.querySelector("#imgLayerBox").innerHTML = "";
-                    document.querySelector("#imgLayerBox").appendChild(img);
-                };
-            });
         }
     });
     $("#frashBtn").on("click", function() {
         window.location.replace("./five_start.html");
     });
-    window.history.replaceState(null, "五件事", "./five_start.html");
 });
