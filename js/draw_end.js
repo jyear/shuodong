@@ -1,3 +1,4 @@
+var saveUrl = "";
 function setQrcode() {
     new QRCode(
         document.getElementById("qrcodeBox"),
