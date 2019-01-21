@@ -83,7 +83,7 @@ function setQrcode() {
         img.onload = function() {
             document.querySelector("#imgLayerBox").innerHTML = "";
             document.querySelector("#imgLayerBox").appendChild(img);
-            console.log($);
+
             $.ajax({
                 type: "post",
                 url: "http://app.yjmob.com/api.php",
