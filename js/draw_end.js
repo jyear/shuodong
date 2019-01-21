@@ -57,4 +57,5 @@ $(function() {
     $("#shareLayer").on("click", function() {
         $(this).removeClass("show");
     });
+    window.history.replaceState(null, "抽签", "./draw_start.html");
 });

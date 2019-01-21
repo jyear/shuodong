@@ -65,7 +65,14 @@ $(function() {
     setQrcode();
     var name = getQuery().name;
     $("#userName").html(decodeURI(name));
-    var randomNumber = Math.floor(Math.random() * 34);
+    var randomNumber;
+    if (window.localStorage.getItem(encodeURI(name)) != undefined) {
+        randomNumber = window.localStorage.getItem(encodeURI(name));
+    } else {
+        randomNumber = Math.floor(Math.random() * (data.length + 1));
+        window.localStorage.setItem(encodeURI(name), randomNumber);
+    }
+
     var renderDom = [];
     data[randomNumber].map(function(item, index) {
         renderDom.push(
@@ -137,4 +144,5 @@ $(function() {
     $("#frashBtn").on("click", function() {
         window.location.replace("./five_start.html");
     });
+    window.history.replaceState(null, "五件事", "./five_start.html");
 });
