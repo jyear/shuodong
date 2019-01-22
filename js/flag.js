@@ -151,7 +151,9 @@ var flagDataList = [
     { text: "去海上冲浪", isChecked: false }
 ];
 function setQrcode() {
-    new QRCode(document.getElementById("qrcodeBox"), window.location.href);
+    new QRCode(document.getElementById("qrcodeBox"), {
+        text: window.location.href
+    });
 }
 function setTime() {
     var now = new Date();
@@ -326,7 +328,54 @@ function getRandomItem(array) {
     }
     return flagDataList[randomNumber];
 }
-
+function drawImage() {
+    html2canvas(document.querySelector("#willRenderImage"), {
+        allowTaint: true,
+        async: false,
+        backgroundColor: "#f0dec1",
+        scale: 3,
+        dpi: window.devicePixelRatio * 2
+    }).then(function(canvas) {
+        var context = canvas.getContext("2d");
+        context.mozImageSmoothingEnabled = false;
+        context.webkitImageSmoothingEnabled = false;
+        context.msImageSmoothingEnabled = false;
+        context.imageSmoothingEnabled = false;
+        var height = canvas.height;
+        var width = canvas.width;
+        context.clearRect(0, height - 2, width, height);
+        var img = new Image();
+        img.src = canvas.toDataURL("image/png");
+        img.onload = function() {
+            document.querySelector("#imgLayerBox").innerHTML = "";
+            document.querySelector("#imgLayerBox").innerHTML =
+                '<img class="canvasimg" src="' + img.src + '" />';
+            document.querySelector("#willRenderImage").innerHTML = "";
+            document.querySelector("#willRenderImage").innerHTML =
+                '<img class="canvasimg" src="' + img.src + '" />';
+            $.ajax({
+                type: "post",
+                url: "http://app.yjmob.com/api.php",
+                data: {
+                    title: "新年Flag",
+                    desc: "新年Flag_flag",
+                    image: img.src,
+                    act: "set"
+                },
+                function(res) {
+                    var data = JSON.parse(res);
+                    if (data && data.code == "0000") {
+                        window.history.replaceState(
+                            null,
+                            "五件事",
+                            "./show.html?id=" + data.id
+                        );
+                    }
+                }
+            });
+        };
+    });
+}
 var flagData = new lookRenderObj();
 $(function() {
     setQrcode();
@@ -422,30 +471,6 @@ $(function() {
         if (imglayer.html().length > 0) {
             return;
         }
-        html2canvas(document.querySelector("#willRenderImage"), {
-            allowTaint: true,
-            async: false,
-            backgroundColor: "#f0dec1",
-            scale: 3,
-            dpi: window.devicePixelRatio * 2
-        }).then(function(canvas) {
-            var context = canvas.getContext("2d");
-            context.mozImageSmoothingEnabled = false;
-            context.webkitImageSmoothingEnabled = false;
-            context.msImageSmoothingEnabled = false;
-            context.imageSmoothingEnabled = false;
-            var height = canvas.height;
-            var width = canvas.width;
-            context.clearRect(0, height - 2, width, height);
-            var img = new Image();
-            img.src = canvas.toDataURL("image/png");
-            img.alt = "解签";
-            img.className = "canvasimg";
-            img.onload = function() {
-                document.querySelector("#imgLayerBox").innerHTML = "";
-                document.querySelector("#imgLayerBox").appendChild(img);
-            };
-        });
     });
     $("#saveBox").on("click", function() {
         $(this).removeClass("show");
@@ -477,6 +502,7 @@ $(function() {
         $("#flagTime").html(
             "立于" + year + "/" + month + "/" + day + "/ " + hours + ":" + mins
         );
+        drawImage();
     });
     $("#step2Btn").on("click", function() {
         if (renderObj.checkedData.length <= 0) {

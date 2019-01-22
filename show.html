@@ -8,19 +8,96 @@
         <style>
             .imgbox {
                 width: 100%;
+                box-sizing: border-box;
+                padding: 0.2rem 0.2rem 0.6rem 0.2rem;
+                text-align: center;
             }
             .imgbox img {
                 width: 100%;
+            }
+            .button {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.8);
+                color: #fff;
+                text-align: center;
+                font-size: 0.16rem;
+                padding: 0.1rem 0;
             }
         </style>
         <title>Document</title>
         <script src="https://cdn.bootcss.com/jquery/1.12.2/jquery.min.js"></script>
     </head>
     <body>
-        <div class="imgbox">
-            <img
-                src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1731569433,2956471252&fm=173&app=25&f=JPEG?w=218&h=146&s=E0330E7425035F47425331DD0300D0BA"
-            />
-        </div>
+        <div class="imgbox" id="imgBox"><span>正在获取图片...</span></div>
+        <div class="button" id="goBefore"><span>我也去试试</span></div>
+        <script>
+            var type;
+            function getQuery() {
+                var href = window.location.href;
+                var query = href.split("?")[1];
+                var res = {};
+                if (query && query.length > 0) {
+                    var qarr = query.split("&");
+                    if (qarr && qarr.length > 0) {
+                        qarr.map(function(item) {
+                            var iarr = item.split("=");
+                            res[iarr[0]] = iarr[1];
+                        });
+                    }
+                }
+                return res;
+            }
+            $(function() {
+                var query = getQuery();
+                if (query && query.id) {
+                    $.ajax({
+                        type: "post",
+                        url: "http://app.yjmob.com/api.php",
+                        data: {
+                            id: query.id,
+                            act: "get"
+                        },
+                        success: function(res) {
+                            var resData = JSON.parse(res);
+                            if (resData && resData.code == "0000") {
+                                var data = resData.data;
+                                document.title = data._title;
+                                type = data._desc.split("_")[1];
+                                $("head").append(
+                                    '<meta name="description" content="' +
+                                        data._desc.split("_")[0] +
+                                        '" >'
+                                );
+                                $("#imgBox").html(
+                                    '<img src="' + data._image + '" />'
+                                );
+                            }
+                        }
+                    });
+                }
+            });
+            $("#goBefore").on("click", function() {
+                if (!type) {
+                    return;
+                }
+                switch (type) {
+                    case "five":
+                        window.location.href = "./five_start.html";
+                        break;
+                    case "draw":
+                        window.location.href = "./draw_start.html";
+                        break;
+                    case "flag":
+                        window.location.href = "./flag.html";
+                        break;
+                    case "summary":
+                        window.location.href = "./summary.html";
+                        break;
+                }
+            });
+        </script>
     </body>
 </html>

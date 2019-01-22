@@ -105,27 +105,33 @@ function drawImage() {
         context.clearRect(0, height - 2, width, height);
         var img = new Image();
         img.src = canvas.toDataURL("image/jpeg");
-        img.alt = "新年五件事";
-        img.className = "canvasimg";
         img.onload = function() {
-            document.querySelector("#imgLayerBox").innerHTML = "";
-            document.querySelector("#imgLayerBox").appendChild(img);
-            document.querySelector("#showImgBox").innerHTML = "";
-            document.querySelector("#showImgBox").appendChild(img);
+            $("#showImgBox").html("");
+            $("#showImgBox").html(
+                '<img class="canvasimg" src="' + img.src + '" />'
+            );
+            $("#imgLayerBox").html("");
+            $("#imgLayerBox").html(
+                '<img class="canvasimg"  src="' + img.src + '" />'
+            );
             $.ajax({
                 type: "post",
                 url: "http://app.yjmob.com/api.php",
-                headers: {
-                    "Access-Control-Allow-Origin": "*"
-                },
                 data: {
                     title: "2019会发生的五件事五件事",
-                    desc: "2019会发生的五件事五件事",
-                    image: img.src
+                    desc: "2019会发生的五件事五件事_five",
+                    image: img.src,
+                    act: "set"
                 },
-                function(res) {
-                    console.log(res);
-                    //window.history.replaceState(null, "五件事", "./five_start.html");
+                success: function(res) {
+                    var resData = JSON.parse(res);
+                    if (resData && resData.code == "0000") {
+                        window.history.replaceState(
+                            null,
+                            "五件事",
+                            "./show.html?id=" + resData.id
+                        );
+                    }
                 }
             });
         };
@@ -141,7 +147,7 @@ function setQrcode() {
         function() {
             drawImage();
         }.bind(this),
-        1000
+        100
     );
 }
 $(function() {
