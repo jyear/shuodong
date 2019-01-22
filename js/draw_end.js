@@ -60,7 +60,7 @@ function drawImage() {
 }
 $(function() {
     setQrcode();
-    var randomNumber = Math.floor(Math.random() * 12);
+    var randomNumber = Math.floor(Math.random() * 18);
     var img = "./images/draw_" + randomNumber + ".png";
     $("#drawText").html('<img src="' + img + '"/>');
     $("#saveBtn").on("click", function() {
