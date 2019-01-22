@@ -128,7 +128,7 @@ function drawImage() {
                     if (resData && resData.code == "0000") {
                         window.history.replaceState(
                             null,
-                            "五件事",
+                            "2019会发生的五件事五件事",
                             "./show.html?id=" + resData.id
                         );
                     }

@@ -89,13 +89,57 @@ Array.prototype.distinct = function() {
 };
 var scrollTopWhenOpenInput = 0;
 var isCanClose = true;
-// $(document).ready(function() {
-//     function stopScrolling(touchEvent) {
-//         touchEvent.preventDefault();
-//     }
-//     document.addEventListener("touchstart", stopScrolling, false);
-//     document.addEventListener("touchmove", stopScrolling, false);
-// });
+function drawImage() {
+    html2canvas(document.querySelector("#willRenderImage"), {
+        allowTaint: true,
+        async: false,
+        backgroundColor: "#f0dec1",
+        scale: 3,
+        dpi: window.devicePixelRatio * 2
+    }).then(function(canvas) {
+        var context = canvas.getContext("2d");
+        context.mozImageSmoothingEnabled = false;
+        context.webkitImageSmoothingEnabled = false;
+        context.msImageSmoothingEnabled = false;
+        context.imageSmoothingEnabled = false;
+        var height = canvas.height;
+        var width = canvas.width;
+        context.clearRect(0, height - 2, width, height);
+        var img = new Image();
+        img.src = canvas.toDataURL("image/png");
+        img.alt = "解签";
+        img.className = "canvasimg";
+        img.onload = function() {
+            document.querySelector("#imgLayerBox").innerHTML = "";
+            document.querySelector("#imgLayerBox").innerHTML =
+                '<img class="canvasimg" src="' + img.src + '" />';
+            //willRenderImage
+            document.querySelector("#willRenderImage").innerHTML = "";
+            document.querySelector("#willRenderImage").innerHTML =
+                '<img class="canvasimg" src="' + img.src + '" />';
+            $.ajax({
+                type: "post",
+                url: "http://app.yjmob.com/api.php",
+                data: {
+                    title: "年终总结",
+                    desc: "年终总结_summary",
+                    image: img.src,
+                    act: "set"
+                },
+                success: function(res) {
+                    var data = JSON.parse(res);
+                    if (data && data.code == "0000") {
+                        window.history.replaceState(
+                            null,
+                            "年终总结",
+                            "./show.html?id=" + data.id
+                        );
+                    }
+                }
+            });
+        };
+    });
+}
 
 $(function() {
     countStep1Btn();
@@ -201,6 +245,9 @@ $(function() {
         });
         $("#innerList").html(textArr.join(""));
         renderData.show = "step3";
+        setTimeout(function() {
+            drawImage();
+        }, 100);
     });
     var h = document.body.clientHeight;
     $("#innerBox").css("min-height", h - 150 + "px");
@@ -216,30 +263,6 @@ $(function() {
         if (imglayer.html().length > 0) {
             return;
         }
-        html2canvas(document.querySelector("#willRenderImage"), {
-            allowTaint: true,
-            async: false,
-            backgroundColor: "#f0dec1",
-            scale: 3,
-            dpi: window.devicePixelRatio * 2
-        }).then(function(canvas) {
-            var context = canvas.getContext("2d");
-            context.mozImageSmoothingEnabled = false;
-            context.webkitImageSmoothingEnabled = false;
-            context.msImageSmoothingEnabled = false;
-            context.imageSmoothingEnabled = false;
-            var height = canvas.height;
-            var width = canvas.width;
-            context.clearRect(0, height - 2, width, height);
-            var img = new Image();
-            img.src = canvas.toDataURL("image/png");
-            img.alt = "解签";
-            img.className = "canvasimg";
-            img.onload = function() {
-                document.querySelector("#imgLayerBox").innerHTML = "";
-                document.querySelector("#imgLayerBox").appendChild(img);
-            };
-        });
     });
     $("#saveBox").on("click", function(e) {
         e.stopPropagation();
