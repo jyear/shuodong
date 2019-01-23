@@ -29,7 +29,7 @@ body {
     background: url("../images/flag_bg1.jpg") left top no-repeat;
     background-size: 100% 100%;
     box-sizing: border-box;
-    padding: 1rem 0.3rem 0 0.3rem;
+    padding: 1rem 0.3rem 1.1rem 0.3rem;
     .content {
         background: url("../images/flag_bg2.png") left top no-repeat;
         background-size: 100% 100%;
@@ -337,7 +337,7 @@ body {
     background: url("../images/flag_bg4.jpg") left top no-repeat;
     background-size: 100% 100%;
     box-sizing: border-box;
-    padding: 0.07rem 0.3rem 1.5rem 0.3rem;
+    padding: 0.07rem 0.3rem 2rem 0.3rem;
     .render-img {
         box-sizing: border-box;
         border: 2px solid #b11121;
@@ -495,4 +495,17 @@ body {
     background: url("../images/flag_bg4.jpg") left bottom no-repeat;
     background-size: 100% auto;
     z-index: 8;
+}
+.ad_box {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    &.static {
+        position: relative;
+    }
+    img {
+        width: 100%;
+        height: 1rem;
+    }
 }

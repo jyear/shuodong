@@ -250,7 +250,7 @@ $(function() {
         }, 100);
     });
     var h = document.body.clientHeight;
-    $("#innerBox").css("min-height", h - 150 + "px");
+    $("#innerBox").css("min-height", h - 230 + "px");
     //生成图片
     $("#saveBtn").on("click", function(e) {
         e.stopPropagation();

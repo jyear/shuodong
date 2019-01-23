@@ -35,6 +35,7 @@ function drawImage() {
             document.querySelector("#imgDom").innerHTML = "";
             document.querySelector("#imgDom").innerHTML =
                 '<img class="canvasimg" src="' + img.src + '" />';
+            document.querySelector("#imgDom").style.paddingBottom = "10px";
             $.ajax({
                 type: "post",
                 url: "http://app.yjmob.com/api.php",

@@ -160,6 +160,8 @@ body {
     overflow: auto;
     background: #d93534;
     height: 100%;
+    padding-bottom: 1.5rem;
+    box-sizing: border-box;
     .renderimg {
         position: relative;
         background: #d93534; // display: flex;
@@ -181,7 +183,7 @@ body {
     .content {
         position: relative; // flex: 1;
         box-sizing: border-box;
-        padding: 0 0.2rem 0.6rem 0.2rem;
+        padding: 0 0.2rem 0.2rem 0.2rem;
         .text-box {
             position: relative; // background: #fff;
             z-index: 2;
@@ -270,7 +272,7 @@ body {
         position: fixed;
         left: 0;
         right: 0;
-        bottom: 0.2rem;
+        bottom: 1.2rem;
         box-sizing: border-box;
         display: flex;
         padding: 0 0.13rem;
@@ -327,5 +329,18 @@ body {
         text-align: center;
         font-size: 0.16rem;
         color: #877ea8;
+    }
+}
+.ad_box {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    &.static {
+        position: relative;
+    }
+    img {
+        width: 100%;
+        height: 1rem;
     }
 }

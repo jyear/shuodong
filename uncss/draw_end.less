@@ -11,7 +11,7 @@ body {
     margin: 0 0.2rem;
     position: relative;
     padding-bottom: 1rem;
-    min-height: 70%;
+    // min-height: 70%;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -125,5 +125,18 @@ body {
         text-align: center;
         font-size: 0.16rem;
         color: #ffe76d;
+    }
+}
+.ad_box {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    &.static {
+        position: relative;
+    }
+    img {
+        width: 100%;
+        height: 1rem;
     }
 }
