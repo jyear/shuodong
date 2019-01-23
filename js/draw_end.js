@@ -8,6 +8,16 @@ function setQrcode() {
         drawImage();
     }, 100);
 }
+var setAd = function() {
+    var platform = phonePlatform();
+    platform = platform == "iphone" ? "iphone" : "android";
+    var adRandom = Math.floor(Math.random() * adData.length);
+    var url = adData[adRandom][platform];
+    var adBox = $("#adImgBox");
+    adBox.attr("href", url);
+    adBox.html('<img src="./images/ad_small' + adRandom + '.png" />');
+};
+setAd();
 function drawImage() {
     html2canvas(document.querySelector("#imgDom"), {
         allowTaint: true,

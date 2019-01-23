@@ -1,4 +1,15 @@
 var sex = 0;
+
+var setAd = function() {
+    var platform = phonePlatform();
+    platform = platform == "iphone" ? "iphone" : "android";
+    var adRandom = Math.floor(Math.random() * adData.length);
+    var url = adData[adRandom][platform];
+    var adBox = $("#adImgBox");
+    adBox.attr("href", url);
+    adBox.html('<img src="./images/ad_big' + adRandom + '.png" />');
+};
+setAd();
 $(function() {
     $("#sexBox").on("click", ".label", function() {
         var _me = $(this);

@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="./css/base.css" />
         <link rel="stylesheet" href="./css/draw_end.css" />
         <script src="https://cdn.bootcss.com/jquery/1.12.2/jquery.min.js"></script>
+        <script src="./js/util.js"></script>
         <script src="./js/qrcode.min.js"></script>
         <script src="./js/html2canvas.min.js"></script>
     </head>
@@ -35,13 +36,14 @@
         <div class="share-layer" id="shareLayer">
             <img src="./images/share_info.png" alt="" />
         </div>
-        <div class="ad_box static">
-            <img src="./images/ad_small0.png" alt="" />
-        </div>
+
         <div class="btn_box">
             <img class="btn" src="./images/draw_save.png" id="saveBtn" />
             <img class="btn" src="./images/draw_share.png" id="shareBtn" />
         </div>
+        <a class="ad_box static" id="adImgBox">
+            <img src="./images/ad_small0.png" alt="" />
+        </a>
         <script src="./js/draw_end.js"></script>
         <script>
             var _mtac = {};

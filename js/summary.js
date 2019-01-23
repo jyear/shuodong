@@ -47,6 +47,20 @@ var RenderData = (function($) {
     return renderDataFunction;
 })($);
 
+var setAd = function(dom) {
+    var platform = phonePlatform();
+    platform = platform == "iphone" ? "iphone" : "android";
+    var adRandom = Math.floor(Math.random() * adData.length);
+    var url = adData[adRandom][platform];
+    dom.attr("href", url);
+    dom.html('<img src="./images/ad_small' + adRandom + '.png" />');
+};
+
+var adBoxs = $(".ad_box");
+adBoxs.each(function() {
+    setAd($(this));
+});
+
 var renderData = new RenderData({
     data: {
         show: "step1"

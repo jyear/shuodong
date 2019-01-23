@@ -1,6 +1,16 @@
 var SHAKE_THRESHOLD = 3000;
 var last_update = 0;
 var x = (y = z = last_x = last_y = last_z = 0);
+var setAd = function() {
+    var platform = phonePlatform();
+    platform = platform == "iphone" ? "iphone" : "android";
+    var adRandom = Math.floor(Math.random() * adData.length);
+    var url = adData[adRandom][platform];
+    var adBox = $("#adImgBox");
+    adBox.attr("href", url);
+    adBox.html('<img src="./images/ad_small' + adRandom + '.png" />');
+};
+setAd();
 function init() {
     if (window.DeviceMotionEvent) {
         window.addEventListener("devicemotion", deviceMotionHandler, false);
@@ -29,7 +39,6 @@ function deviceMotionHandler(eventData) {
         last_y = y;
         last_z = z;
     }
-    console.log(acceleration);
 }
 function goStep3() {
     $("#beginBtn").remove();

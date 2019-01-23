@@ -175,6 +175,20 @@ var flagDataList = [
     { text: "纹一个很酷的纹身", isChecked: false },
     { text: "至少爬过五座山", isChecked: false }
 ];
+var setAd = function(dom) {
+    var platform = phonePlatform();
+    platform = platform == "iphone" ? "iphone" : "android";
+    var adRandom = Math.floor(Math.random() * adData.length);
+    var url = adData[adRandom][platform];
+    dom.attr("href", url);
+    dom.html('<img src="./images/ad_small' + adRandom + '.png" />');
+};
+
+var adBoxs = $(".ad_box");
+adBoxs.each(function() {
+    setAd($(this));
+});
+
 function setQrcode() {
     new QRCode(document.getElementById("qrcodeBox"), {
         text: window.location.href

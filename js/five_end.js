@@ -71,6 +71,16 @@ var data = {
     33: ["桃花债上门", "参加非诚勿扰", "牵手成功", "闪婚", "生娃"],
     34: ["沉迷学习", "日渐消瘦", "渐消瘦", "消瘦", "瘦"]
 };
+var setAd = function() {
+    var platform = phonePlatform();
+    platform = platform == "iphone" ? "iphone" : "android";
+    var adRandom = Math.floor(Math.random() * adData.length);
+    var url = adData[adRandom][platform];
+    var adBox = $("#adImgBox");
+    adBox.attr("href", url);
+    adBox.html('<img src="./images/ad_small' + adRandom + '.png" />');
+};
+setAd();
 function getQuery() {
     var href = window.location.href;
     var query = href.split("?")[1];
