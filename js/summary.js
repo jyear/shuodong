@@ -155,13 +155,7 @@ function drawImage() {
                                 title: "年终总结",
                                 desc: "年终总结",
                                 link: "./show.html?id=" + data.id,
-                                imgUrl: "../images/share.png",
-                                success: function() {
-                                    console.log(0);
-                                },
-                                fail: function() {
-                                    console.log(1);
-                                }
+                                imgUrl: "../images/share.png"
                             });
                             wx.updateTimelineShareData({
                                 title: "年终总结",
