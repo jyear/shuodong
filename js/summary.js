@@ -149,16 +149,6 @@ function drawImage() {
                 success: function(res) {
                     var data = JSON.parse(res);
                     if (data && data.code == "0000") {
-                        wx.checkJsApi({
-                            jsApiList: [
-                                "updateAppMessageShareData",
-                                "updateTimelineShareData"
-                            ],
-                            success: function(res) {
-                                console.log(3, res);
-                            }
-                        });
-
                         wx.ready(function() {
                             console.log(222);
                             wx.updateAppMessageShareData({
