@@ -29,15 +29,17 @@ var getConfig = function() {
             url: window.location.href
         },
         success: function(res) {
-            if (res && res.code == "0000") {
-                var data = res.data;
+            var resData = JSON.parse(res);
+            if (resData && resData.code == "0000") {
+                var data = resData.data;
                 wx.config({
                     debug: true,
                     appId: data.appId,
-                    timestamp: data.timestamp,
+                    timestamp: parseInt(data.timestamp, 10),
                     nonceStr: data.nonceStr,
                     signature: data.signature,
                     jsApiList: [
+                        "checkJsApi",
                         "updateAppMessageShareData",
                         "updateTimelineShareData"
                     ]
