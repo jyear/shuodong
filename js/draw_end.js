@@ -15,7 +15,11 @@ var setAd = function() {
     var url = adData[adRandom][platform];
     var adBox = $("#adImgBox");
     adBox.attr("href", url);
-    adBox.html('<img src="./images/ad_small' + adRandom + '.png" />');
+    '<img src="./images/ad_small' +
+        adRandom +
+        "." +
+        adData[adRandom].imageType +
+        '" />';
 };
 setAd();
 function drawImage() {
@@ -48,7 +52,7 @@ function drawImage() {
             document.querySelector("#imgDom").style.paddingBottom = "10px";
             $.ajax({
                 type: "post",
-                url: "http://app.yjmob.com/api.php",
+                url: "http://www.bxwjt.cn/api.php",
                 data: {
                     title: "新年签",
                     desc: "新年签_draw",

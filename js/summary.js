@@ -53,7 +53,13 @@ var setAd = function(dom) {
     var adRandom = Math.floor(Math.random() * adData.length);
     var url = adData[adRandom][platform];
     dom.attr("href", url);
-    dom.html('<img src="./images/ad_small' + adRandom + '.png" />');
+    dom.html(
+        '<img src="./images/ad_small' +
+            adRandom +
+            "." +
+            adData[adRandom].imageType +
+            '" />'
+    );
 };
 
 var adBoxs = $(".ad_box");
@@ -133,7 +139,7 @@ function drawImage() {
                 '<img class="canvasimg" src="' + img.src + '" />';
             $.ajax({
                 type: "post",
-                url: "http://app.yjmob.com/api.php",
+                url: "http://www.bxwjt.cn/api.php",
                 data: {
                     title: "年终总结",
                     desc: "年终总结_summary",
@@ -143,11 +149,41 @@ function drawImage() {
                 success: function(res) {
                     var data = JSON.parse(res);
                     if (data && data.code == "0000") {
-                        window.history.replaceState(
-                            null,
-                            "年终总结",
-                            "./show.html?id=" + data.id
-                        );
+                        wx.checkJsApi({
+                            jsApiList: ["updateAppMessageShareData"],
+                            success: function(res) {
+                                console.log(3, res);
+                            },
+                            fail: function() {
+                                console.log(4);
+                            }
+                        });
+                        wx.ready(function() {
+                            console.log(222);
+                            wx.updateAppMessageShareData({
+                                title: "年终总结",
+                                desc: "年终总结",
+                                link: "./show.html?id=" + data.id,
+                                imgUrl: "../images/share.png",
+                                success: function() {
+                                    console.log(0);
+                                },
+                                fail: function() {
+                                    console.log(1);
+                                }
+                            });
+                            wx.updateTimelineShareData({
+                                title: "年终总结",
+                                desc: "年终总结",
+                                link: "./show.html?id=" + data.id,
+                                imgUrl: "../images/share.png"
+                            });
+                        });
+                        // window.history.replaceState(
+                        //     null,
+                        //     "年终总结",
+                        //     "./show.html?id=" + data.id
+                        // );
                     }
                 }
             });

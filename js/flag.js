@@ -181,7 +181,13 @@ var setAd = function(dom) {
     var adRandom = Math.floor(Math.random() * adData.length);
     var url = adData[adRandom][platform];
     dom.attr("href", url);
-    dom.html('<img src="./images/ad_small' + adRandom + '.png" />');
+    dom.html(
+        '<img src="./images/ad_small' +
+            adRandom +
+            "." +
+            adData[adRandom].imageType +
+            '" />'
+    );
 };
 
 var adBoxs = $(".ad_box");
@@ -394,7 +400,7 @@ function drawImage() {
                 '<img class="canvasimg" src="' + img.src + '" />';
             $.ajax({
                 type: "post",
-                url: "http://app.yjmob.com/api.php",
+                url: "http://www.bxwjt.cn/api.php",
                 data: {
                     title: "新年Flag",
                     desc: "新年Flag_flag",

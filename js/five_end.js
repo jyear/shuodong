@@ -78,7 +78,13 @@ var setAd = function() {
     var url = adData[adRandom][platform];
     var adBox = $("#adImgBox");
     adBox.attr("href", url);
-    adBox.html('<img src="./images/ad_small' + adRandom + '.png" />');
+    adBox.html(
+        '<img src="./images/ad_small' +
+            adRandom +
+            "." +
+            adData[adRandom].imageType +
+            '" />'
+    );
 };
 setAd();
 function getQuery() {
@@ -126,7 +132,7 @@ function drawImage() {
             );
             $.ajax({
                 type: "post",
-                url: "http://app.yjmob.com/api.php",
+                url: "http://www.bxwjt.cn/api.php",
                 data: {
                     title: "2019会发生的五件事五件事",
                     desc: "2019会发生的五件事五件事_five",

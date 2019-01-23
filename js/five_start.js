@@ -7,7 +7,13 @@ var setAd = function() {
     var url = adData[adRandom][platform];
     var adBox = $("#adImgBox");
     adBox.attr("href", url);
-    adBox.html('<img src="./images/ad_big' + adRandom + '.png" />');
+    adBox.html(
+        '<img src="./images/ad_big' +
+            adRandom +
+            "." +
+            adData[adRandom].imageType +
+            '" />'
+    );
 };
 setAd();
 $(function() {
