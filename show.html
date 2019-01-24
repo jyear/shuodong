@@ -28,7 +28,9 @@
             }
         </style>
         <title>Document</title>
-        <script src="https://cdn.bootcss.com/jquery/1.12.2/jquery.min.js"></script>
+        <script src="http://res2.wx.qq.com/open/js/jweixin-1.4.0.js "></script>
+        <script src="https://cdn.bootcss.com/jquery/1.12.3/jquery.slim.min.js"></script>
+        <script src="./js/util.js"></script>
     </head>
     <body>
         <!-- <p style="display: none">你是一个大傻冒</p>
@@ -76,6 +78,20 @@
                                 $("#imgBox").html(
                                     '<img src="' + data._image + '" />'
                                 );
+                                wx.ready(function() {
+                                    var domain = getDomain();
+                                    var shareData = {
+                                        title: data._desc.split("_")[0],
+                                        desc: "新年Flag",
+                                        link: window.location.href,
+                                        imgUrl: domain + "/images/share.png",
+                                        success: function(res) {
+                                            console.log(res);
+                                        }
+                                    };
+                                    wx.updateAppMessageShareData(shareData);
+                                    wx.updateTimelineShareData(shareData);
+                                });
                             }
                         }
                     });
