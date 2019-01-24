@@ -149,7 +149,7 @@ function drawImage() {
                                 desc:
                                     "惊了，这是我2019会发生这五件事！快来围观吧！",
                                 link: domain + "/show.html?id=" + resData.id,
-                                imgUrl: domain + "/images/five_logo.png",
+                                imgUrl: domain + "/images/five_logo.jpg",
                                 success: function(res) {
                                     console.log(res);
                                 }
@@ -157,11 +157,11 @@ function drawImage() {
                             wx.updateAppMessageShareData(shareData);
                             wx.updateTimelineShareData(shareData);
                         });
-                        window.history.replaceState(
-                            null,
-                            "2019会发生的五件事五件事",
-                            "./show.html?id=" + resData.id
-                        );
+                        // window.history.replaceState(
+                        //     null,
+                        //     "2019会发生的五件事五件事",
+                        //     "./show.html?id=" + resData.id
+                        // );
                     }
                 }
             });

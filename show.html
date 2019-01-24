@@ -30,7 +30,7 @@
         <title>Document</title>
         <script src="http://res2.wx.qq.com/open/js/jweixin-1.4.0.js "></script>
         <script src="https://cdn.bootcss.com/jquery/1.12.3/jquery.min.js"></script>
-        <script src="./js/util.js"></script>
+        <script src="./js/util.js?1"></script>
     </head>
     <body>
         <!-- <p style="display: none">你是一个大傻冒</p>
@@ -39,21 +39,7 @@
         <div class="button" id="goBefore"><span>我也去试试</span></div>
         <script>
             var type;
-            function getQuery() {
-                var href = window.location.href;
-                var query = href.split("?")[1];
-                var res = {};
-                if (query && query.length > 0) {
-                    var qarr = query.split("&");
-                    if (qarr && qarr.length > 0) {
-                        qarr.map(function(item) {
-                            var iarr = item.split("=");
-                            res[iarr[0]] = iarr[1];
-                        });
-                    }
-                }
-                return res;
-            }
+
             function getDesc() {
                 if (!type) {
                     return;
@@ -73,6 +59,7 @@
                         res = "我的2018年终总结已经写好了，你呢？";
                         break;
                 }
+                return res;
             }
             $(function() {
                 var query = getQuery();
@@ -108,7 +95,7 @@
                                             domain +
                                             "/images/" +
                                             data._desc.split("_")[1] +
-                                            "_logo.png",
+                                            "_logo.jpg",
                                         success: function(res) {
                                             console.log(res);
                                         }

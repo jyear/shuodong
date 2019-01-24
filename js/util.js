@@ -30,7 +30,32 @@ var getDomain = function() {
     var str = s.substr(0, s.lastIndexOf("/"));
     return str;
 };
+function getQuery() {
+    var href = window.location.href;
+    var query = href.split("?")[1];
+    var res = {};
+    if (query && query.length > 0) {
+        var qarr = query.split("&");
+        if (qarr && qarr.length > 0) {
+            qarr.map(function(item) {
+                var iarr = item.split("=");
+                res[iarr[0]] = iarr[1];
+            });
+        }
+    }
+    return res;
+}
+
 var getConfig = function() {
+    let query = getQuery();
+    if (query && query.id) {
+        window.history.replaceState(
+            null,
+            "document",
+            "./show.html?id=" + query.id
+        );
+        console.log(window.location.href);
+    }
     $.ajax({
         type: "post",
         url: "http://www.bxwjt.cn/api.php",
@@ -42,7 +67,6 @@ var getConfig = function() {
             var resData = JSON.parse(res);
             if (resData && resData.code == "0000") {
                 var data = resData.data;
-                alert(JSON.stringify(data));
                 wx.config({
                     debug: true,
                     appId: data.appId,
@@ -62,4 +86,12 @@ var getConfig = function() {
 getConfig();
 wx.error(function(err) {
     console.log("error:", err);
+});
+$(function() {
+    $(".gongzhonghao").on("click", function() {
+        $(this).removeClass("show");
+    });
+    $("#showQrcode").on("click", function() {
+        $(".gongzhonghao").addClass("show");
+    });
 });

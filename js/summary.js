@@ -155,7 +155,7 @@ function drawImage() {
                                 title: "年终总结",
                                 desc: "我的2018年终总结已经写好了，你呢？",
                                 link: domain + "/show.html?id=" + data.id,
-                                imgUrl: domain + "/images/summary_logo.png",
+                                imgUrl: domain + "/images/summary_logo.jpg",
                                 success: function(res) {
                                     console.log(res);
                                 }
@@ -163,11 +163,11 @@ function drawImage() {
                             wx.updateAppMessageShareData(shareData);
                             wx.updateTimelineShareData(shareData);
                         });
-                        window.history.replaceState(
-                            null,
-                            "年终总结",
-                            "./show.html?id=" + data.id
-                        );
+                        // window.history.replaceState(
+                        //     null,
+                        //     "年终总结",
+                        //     "./show.html?id=" + data.id
+                        // );
                     }
                 }
             });

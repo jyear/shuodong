@@ -68,7 +68,7 @@ function drawImage() {
                                 title: "新年签",
                                 desc: "新年第一签，我抽中了这个，真是太幸运了!",
                                 link: domain + "/show.html?id=" + data.id,
-                                imgUrl: domain + "/images/draw_logo.png",
+                                imgUrl: domain + "/images/draw_logo.jpg",
                                 success: function(res) {
                                     console.log(res);
                                 }
@@ -76,11 +76,11 @@ function drawImage() {
                             wx.updateAppMessageShareData(shareData);
                             wx.updateTimelineShareData(shareData);
                         });
-                        window.history.replaceState(
-                            null,
-                            "新年签",
-                            "./show.html?id=" + data.id
-                        );
+                        // window.history.replaceState(
+                        //     null,
+                        //     "新年签",
+                        //     "./show.html?id=" + data.id
+                        // );
                     }
                 }
             });

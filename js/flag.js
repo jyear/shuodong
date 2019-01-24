@@ -417,7 +417,7 @@ function drawImage() {
                                 desc:
                                     "我在这里立下了新年flag，来比比谁先实现？",
                                 link: domain + "/show.html?id=" + data.id,
-                                imgUrl: domain + "/images/flag_logo.png",
+                                imgUrl: domain + "/images/flag_logo.jpg",
                                 success: function(res) {
                                     console.log(res);
                                 }
@@ -425,11 +425,11 @@ function drawImage() {
                             wx.updateAppMessageShareData(shareData);
                             wx.updateTimelineShareData(shareData);
                         });
-                        window.history.replaceState(
-                            null,
-                            "新年Flag",
-                            "./show.html?id=" + data.id
-                        );
+                        // window.history.replaceState(
+                        //     null,
+                        //     "新年Flag",
+                        //     "./show.html?id=" + data.id
+                        // );
                     }
                 }
             });
