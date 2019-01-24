@@ -414,9 +414,10 @@ function drawImage() {
                             var domain = getDomain();
                             var shareData = {
                                 title: "新年Flag",
-                                desc: "新年Flag",
+                                desc:
+                                    "我在这里立下了新年flag，来比比谁先实现？",
                                 link: domain + "/show.html?id=" + data.id,
-                                imgUrl: domain + "/images/share.png",
+                                imgUrl: domain + "/images/flag_logo.png",
                                 success: function(res) {
                                     console.log(res);
                                 }

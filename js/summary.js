@@ -152,10 +152,10 @@ function drawImage() {
                         wx.ready(function() {
                             var domain = getDomain();
                             var shareData = {
-                                title: "新年签",
-                                desc: "新年签",
+                                title: "年终总结",
+                                desc: "我的2018年终总结已经写好了，你呢？",
                                 link: domain + "/show.html?id=" + data.id,
-                                imgUrl: domain + "/images/share.png",
+                                imgUrl: domain + "/images/summary_logo.png",
                                 success: function(res) {
                                     console.log(res);
                                 }

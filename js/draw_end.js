@@ -66,9 +66,9 @@ function drawImage() {
                             var domain = getDomain();
                             var shareData = {
                                 title: "新年签",
-                                desc: "新年签",
+                                desc: "新年第一签，我抽中了这个，真是太幸运了!",
                                 link: domain + "/show.html?id=" + data.id,
-                                imgUrl: domain + "/images/share.png",
+                                imgUrl: domain + "/images/draw_logo.png",
                                 success: function(res) {
                                     console.log(res);
                                 }

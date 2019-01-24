@@ -29,7 +29,7 @@
         </style>
         <title>Document</title>
         <script src="http://res2.wx.qq.com/open/js/jweixin-1.4.0.js "></script>
-        <script src="https://cdn.bootcss.com/jquery/1.12.3/jquery.slim.min.js"></script>
+        <script src="https://cdn.bootcss.com/jquery/1.12.3/jquery.min.js"></script>
         <script src="./js/util.js"></script>
     </head>
     <body>
@@ -53,6 +53,26 @@
                     }
                 }
                 return res;
+            }
+            function getDesc() {
+                if (!type) {
+                    return;
+                }
+                var res = "";
+                switch (type) {
+                    case "five":
+                        res = "惊了，这是我2019会发生这五件事！快来围观吧！";
+                        break;
+                    case "draw":
+                        res = "新年第一签，我抽中了这个，真是太幸运了";
+                        break;
+                    case "flag":
+                        res = "我在这里立下了新年flag，来比比谁先实现？";
+                        break;
+                    case "summary":
+                        res = "我的2018年终总结已经写好了，你呢？";
+                        break;
+                }
             }
             $(function() {
                 var query = getQuery();
@@ -82,9 +102,13 @@
                                     var domain = getDomain();
                                     var shareData = {
                                         title: data._desc.split("_")[0],
-                                        desc: "新年Flag",
+                                        desc: getDesc(),
                                         link: window.location.href,
-                                        imgUrl: domain + "/images/share.png",
+                                        imgUrl:
+                                            domain +
+                                            "/images/" +
+                                            data._desc.split("_")[1] +
+                                            "_logo.png",
                                         success: function(res) {
                                             console.log(res);
                                         }
