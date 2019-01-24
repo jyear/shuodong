@@ -149,26 +149,25 @@ function drawImage() {
                 success: function(res) {
                     var data = JSON.parse(res);
                     if (data && data.code == "0000") {
-                        var domain = getDomain();
                         wx.ready(function() {
-                            wx.updateAppMessageShareData({
-                                title: "年终总结",
-                                desc: "年终总结",
+                            var domain = getDomain();
+                            var shareData = {
+                                title: "新年签",
+                                desc: "新年签",
                                 link: domain + "/show.html?id=" + data.id,
-                                imgUrl: domain + "/images/share.png"
-                            });
-                            wx.updateTimelineShareData({
-                                title: "年终总结",
-                                desc: "年终总结",
-                                link: domain + "/show.html?id=" + data.id,
-                                imgUrl: domain + "/images/share.png"
-                            });
+                                imgUrl: domain + "/images/share.png",
+                                success: function(res) {
+                                    console.log(res);
+                                }
+                            };
+                            wx.updateAppMessageShareData(shareData);
+                            wx.updateTimelineShareData(shareData);
                         });
-                        // window.history.replaceState(
-                        //     null,
-                        //     "年终总结",
-                        //     "./show.html?id=" + data.id
-                        // );
+                        window.history.replaceState(
+                            null,
+                            "年终总结",
+                            "./show.html?id=" + data.id
+                        );
                     }
                 }
             });

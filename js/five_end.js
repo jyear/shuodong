@@ -142,26 +142,25 @@ function drawImage() {
                 success: function(res) {
                     var resData = JSON.parse(res);
                     if (resData && resData.code == "0000") {
-                        var domain = getDomain();
                         wx.ready(function() {
-                            wx.updateAppMessageShareData({
-                                title: "年终总结",
-                                desc: "年终总结",
+                            var domain = getDomain();
+                            var shareData = {
+                                title: "2019会发生的五件事五件事",
+                                desc: "2019会发生的五件事五件事",
                                 link: domain + "/show.html?id=" + resData.id,
-                                imgUrl: domain + "/images/share.png"
-                            });
-                            wx.updateTimelineShareData({
-                                title: "年终总结",
-                                desc: "年终总结",
-                                link: domain + "/show.html?id=" + resData.id,
-                                imgUrl: domain + "/images/share.png"
-                            });
+                                imgUrl: domain + "/images/share.png",
+                                success: function(res) {
+                                    console.log(res);
+                                }
+                            };
+                            wx.updateAppMessageShareData(shareData);
+                            wx.updateTimelineShareData(shareData);
                         });
-                        //     window.history.replaceState(
-                        //         null,
-                        //         "2019会发生的五件事五件事",
-                        //         "./show.html?id=" + resData.id
-                        //     );
+                        window.history.replaceState(
+                            null,
+                            "2019会发生的五件事五件事",
+                            "./show.html?id=" + resData.id
+                        );
                     }
                 }
             });

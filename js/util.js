@@ -17,9 +17,19 @@ var adData = [
         android: "https://www.pgyer.com/TTP0",
         iphone: "https://itunes.apple.com/cn/app/id1447476387",
         imageType: "png"
+    },
+    {
+        android: "https://www.pgyer.com/TTP0",
+        iphone: "https://itunes.apple.com/cn/app/id1447476387",
+        imageType: "gif"
     }
 ];
 
+var getDomain = function() {
+    var s = window.location.href;
+    var str = s.substr(0, s.lastIndexOf("/"));
+    return str;
+};
 var getConfig = function() {
     $.ajax({
         type: "post",
@@ -52,9 +62,3 @@ getConfig();
 wx.error(function(err) {
     console.log("error:", err);
 });
-
-var getDomain = function() {
-    var s = window.location.href;
-    var str = s.substr(0, s.lastIndexOf("/"));
-    return str;
-};
