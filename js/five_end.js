@@ -142,11 +142,26 @@ function drawImage() {
                 success: function(res) {
                     var resData = JSON.parse(res);
                     if (resData && resData.code == "0000") {
-                        window.history.replaceState(
-                            null,
-                            "2019会发生的五件事五件事",
-                            "./show.html?id=" + resData.id
-                        );
+                        var domain = getDomain();
+                        wx.ready(function() {
+                            wx.updateAppMessageShareData({
+                                title: "年终总结",
+                                desc: "年终总结",
+                                link: domain + "/show.html?id=" + resData.id,
+                                imgUrl: domain + "/images/share.png"
+                            });
+                            wx.updateTimelineShareData({
+                                title: "年终总结",
+                                desc: "年终总结",
+                                link: domain + "/show.html?id=" + resData.id,
+                                imgUrl: domain + "/images/share.png"
+                            });
+                        });
+                        //     window.history.replaceState(
+                        //         null,
+                        //         "2019会发生的五件事五件事",
+                        //         "./show.html?id=" + resData.id
+                        //     );
                     }
                 }
             });

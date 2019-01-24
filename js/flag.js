@@ -410,11 +410,27 @@ function drawImage() {
                 success: function(res) {
                     var data = JSON.parse(res);
                     if (data && data.code == "0000") {
-                        window.history.replaceState(
-                            null,
-                            "新年Flag",
-                            "./show.html?id=" + data.id
-                        );
+                        wx.ready(function() {
+                            var domain = getDomain();
+                            wx.updateAppMessageShareData({
+                                title: "年终总结",
+                                desc: "年终总结",
+                                link: domain + "/show.html?id=" + data.id,
+                                imgUrl: domain + "/images/share.png"
+                            });
+                            wx.updateTimelineShareData({
+                                title: "年终总结",
+                                desc: "年终总结",
+                                link: domain + "/show.html?id=" + data.id,
+                                imgUrl: domain + "/images/share.png"
+                            });
+                        });
+
+                        // window.history.replaceState(
+                        //     null,
+                        //     "新年Flag",
+                        //     "./show.html?id=" + data.id
+                        // );
                     }
                 }
             });

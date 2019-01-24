@@ -149,19 +149,19 @@ function drawImage() {
                 success: function(res) {
                     var data = JSON.parse(res);
                     if (data && data.code == "0000") {
+                        var domain = getDomain();
                         wx.ready(function() {
-                            console.log(222);
                             wx.updateAppMessageShareData({
                                 title: "年终总结",
                                 desc: "年终总结",
-                                link: "./show.html?id=" + data.id,
-                                imgUrl: "../images/share.png"
+                                link: domain + "/show.html?id=" + data.id,
+                                imgUrl: domain + "/images/share.png"
                             });
                             wx.updateTimelineShareData({
                                 title: "年终总结",
                                 desc: "年终总结",
-                                link: "./show.html?id=" + data.id,
-                                imgUrl: "../images/share.png"
+                                link: domain + "/show.html?id=" + data.id,
+                                imgUrl: domain + "/images/share.png"
                             });
                         });
                         // window.history.replaceState(

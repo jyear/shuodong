@@ -62,11 +62,26 @@ function drawImage() {
                 success: function(res) {
                     var data = JSON.parse(res);
                     if (data && data.code == "0000") {
-                        window.history.replaceState(
-                            null,
-                            "新年签",
-                            "./show.html?id=" + data.id
-                        );
+                        var domain = getDomain();
+                        wx.ready(function() {
+                            wx.updateAppMessageShareData({
+                                title: "年终总结",
+                                desc: "年终总结",
+                                link: domain + "/show.html?id=" + resData.id,
+                                imgUrl: domain + "/images/share.png"
+                            });
+                            wx.updateTimelineShareData({
+                                title: "年终总结",
+                                desc: "年终总结",
+                                link: domain + "/show.html?id=" + resData.id,
+                                imgUrl: domain + "/images/share.png"
+                            });
+                        });
+                        // window.history.replaceState(
+                        //     null,
+                        //     "新年签",
+                        //     "./show.html?id=" + data.id
+                        // );
                     }
                 }
             });
