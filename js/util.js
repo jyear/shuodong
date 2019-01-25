@@ -54,7 +54,6 @@ var getConfig = function() {
             "document",
             "./show.html?id=" + query.id
         );
-        console.log(window.location.href);
     }
     $.ajax({
         type: "post",
@@ -76,7 +75,9 @@ var getConfig = function() {
                     jsApiList: [
                         "checkJsApi",
                         "updateAppMessageShareData",
-                        "updateTimelineShareData"
+                        "updateTimelineShareData",
+                        "onMenuShareAppMessage",
+                        "onMenuShareTimeline"
                     ]
                 });
             }

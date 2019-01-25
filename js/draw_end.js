@@ -75,6 +75,8 @@ function drawImage() {
                             };
                             wx.updateAppMessageShareData(shareData);
                             wx.updateTimelineShareData(shareData);
+                            wx.onMenuShareAppMessage(shareData);
+                            wx.onMenuShareTimeline(shareData);
                         });
                         // window.history.replaceState(
                         //     null,
