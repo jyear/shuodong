@@ -15,11 +15,13 @@ var setAd = function() {
     var url = adData[adRandom][platform];
     var adBox = $("#adImgBox");
     adBox.attr("href", url);
-    '<img src="./images/ad_small' +
-        adRandom +
-        "." +
-        adData[adRandom].imageType +
-        '" />';
+    adBox.html(
+        '<img src="./images/ad_small' +
+            adRandom +
+            "." +
+            adData[adRandom].imageType +
+            '" />'
+    );
 };
 setAd();
 function drawImage() {
