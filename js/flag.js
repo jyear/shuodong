@@ -210,7 +210,7 @@ function setTime() {
     res.hours = Math.floor((s / (1000 * 60 * 60)) % 24, 10);
     res.mins = Math.floor((s / (1000 * 60)) % 60, 10);
     res.secs = Math.floor((s / 1000) % 60, 10);
-    res.day = res.day > 10 ? res.day : "0" + res.day;
+    res.day = res.day;
     res.hours = res.hours >= 10 ? res.hours : "0" + res.hours;
     res.mins = res.mins >= 10 ? res.mins : "0" + res.mins;
     res.secs = res.secs >= 10 ? res.secs : "0" + res.secs;
