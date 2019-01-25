@@ -16,7 +16,7 @@ var adData = [
     {
         android: "https://www.pgyer.com/TTP0",
         iphone: "https://itunes.apple.com/cn/app/id1447476387",
-        imageType: "png"
+        imageType: "gif"
     },
     {
         android: "http://download.sskankan.com",
@@ -67,7 +67,7 @@ var getConfig = function() {
             if (resData && resData.code == "0000") {
                 var data = resData.data;
                 wx.config({
-                    debug: true,
+                    debug: false,
                     appId: data.appId,
                     timestamp: parseInt(data.timestamp, 10),
                     nonceStr: data.nonceStr,
