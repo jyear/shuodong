@@ -4,9 +4,6 @@ function setQrcode() {
         document.getElementById("qrcodeBox"),
         window.location.href.replace("_end", "_start")
     );
-    setTimeout(function() {
-        drawImage();
-    }, 100);
 }
 var setAd = function() {
     var platform = phonePlatform();
@@ -80,11 +77,6 @@ function drawImage() {
                             wx.onMenuShareAppMessage(shareData);
                             wx.onMenuShareTimeline(shareData);
                         });
-                        // window.history.replaceState(
-                        //     null,
-                        //     "新年签",
-                        //     "./show.html?id=" + data.id
-                        // );
                     }
                 }
             });
@@ -119,5 +111,9 @@ $(function() {
     $("#shareLayer").on("click", function() {
         $(this).removeClass("show");
     });
+
     //window.history.replaceState(null, "抽签", "./draw_start.html");
 });
+window.onload = function() {
+    drawImage();
+};
