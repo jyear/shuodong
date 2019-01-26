@@ -181,6 +181,9 @@ var setAd = function(dom) {
     var adRandom = Math.floor(Math.random() * adData.length);
     var url = adData[adRandom][platform];
     dom.attr("href", url);
+    if (adRandom == 0) {
+        dom.attr("onclick", 'onclick="MtaH5.clickStat("3")"');
+    }
     dom.html(
         '<img src="./images/ad_small' +
             adRandom +

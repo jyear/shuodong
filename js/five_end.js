@@ -78,6 +78,9 @@ var setAd = function() {
     var url = adData[adRandom][platform];
     var adBox = $("#adImgBox");
     adBox.attr("href", url);
+    if (adRandom == 0) {
+        adBox.attr("onclick", 'onclick="MtaH5.clickStat("1")"');
+    }
     adBox.html(
         '<img src="./images/ad_small' +
             adRandom +
