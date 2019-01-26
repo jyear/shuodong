@@ -153,7 +153,8 @@ function drawImage() {
                             var domain = getDomain();
                             var shareData = {
                                 title: "年终总结",
-                                desc: "我的2018年终总结已经写好了，你呢？",
+                                desc:
+                                    "我的2018年终总结已经写好了，快来围观吧！",
                                 link: domain + "/show.html?id=" + data.id,
                                 imgUrl: domain + "/images/summary_logo.jpg",
                                 success: function(res) {
@@ -219,16 +220,23 @@ $(function() {
 
     $("#InputBoxBtn").on("click", function(e) {
         var _val = $("#InputBoxContent").val();
-        if ($("#groupContainer .group-item.edit").length > 0) {
-            $("#groupContainer .group-item.edit")
-                .html(_val)
-                .removeClass("edit");
-        } else {
-            $('<div  class="group-item cur">' + _val + "</div>").insertBefore(
-                $("#groupContainer .group-add.edit")
-            );
-            $("#groupContainer .group-add.edit").removeClass("edit");
+        if (_val.length > 30) {
+            alert("总结字数不能超过30个");
+            return;
         }
+        if (_val.length > 0) {
+            if ($("#groupContainer .group-item.edit").length > 0) {
+                $("#groupContainer .group-item.edit")
+                    .html(_val)
+                    .removeClass("edit");
+            } else {
+                $(
+                    '<div  class="group-item cur">' + _val + "</div>"
+                ).insertBefore($("#groupContainer .group-add.edit"));
+                $("#groupContainer .group-add.edit").removeClass("edit");
+            }
+        }
+
         $("#InputBoxContent").val("");
         //var winH = document.body.clientHeight;
         document.activeElement.scrollIntoViewIfNeeded(true);

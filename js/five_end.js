@@ -134,8 +134,8 @@ function drawImage() {
                 type: "post",
                 url: "http://www.bxwjt.cn/api.php",
                 data: {
-                    title: "2019会发生的五件事五件事",
-                    desc: "2019会发生的五件事五件事_five",
+                    title: "2019会发生的五件事",
+                    desc: "2019会发生的五件事_five",
                     image: img.src,
                     act: "set"
                 },
@@ -145,7 +145,7 @@ function drawImage() {
                         wx.ready(function() {
                             var domain = getDomain();
                             var shareData = {
-                                title: "2019会发生的五件事五件事",
+                                title: "2019会发生的五件事",
                                 desc:
                                     "惊了，这是我2019会发生这五件事！快来围观吧！",
                                 link: domain + "/show.html?id=" + resData.id,

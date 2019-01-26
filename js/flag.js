@@ -464,7 +464,7 @@ $(function() {
             checkList.push(list[_idx]);
             newCheckList = checkList;
         }
-
+        $("#checkBox").removeClass("hastip");
         renderObj.tabData = JSON.parse(JSON.stringify(list));
         renderObj.checkedData = JSON.parse(JSON.stringify(newCheckList));
     });
@@ -501,6 +501,10 @@ $(function() {
         var _input = $("#inputBox");
         var _value = _input[0].value;
         if (_value.trim().length <= 0) {
+            return;
+        }
+        if (_value.trim().length > 30) {
+            alert("flag字数不能超过30");
             return;
         }
         var list = renderObj.checkedData;
@@ -550,6 +554,10 @@ $(function() {
         var _value = $("#userNameInput")[0].value.trim();
         if (_value.length <= 0) {
             alert("请输入你的名字");
+            return;
+        }
+        if (_value.length > 6) {
+            alert("名字长度不能超过6");
             return;
         }
         renderObj.show = "step5";

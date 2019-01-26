@@ -40,6 +40,10 @@ $(function() {
             alert("姓名不能为空！");
             return;
         }
+        if (!name || name.length > 6) {
+            alert("姓名长度不能超过6位");
+            return;
+        }
         window.location.replace("./five_end.html?name=" + encodeURI(name));
     });
 });
