@@ -85,6 +85,7 @@ var getConfig = function() {
     });
 };
 getConfig();
+
 wx.error(function(err) {
     console.log("error:", err);
 });

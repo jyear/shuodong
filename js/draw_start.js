@@ -9,7 +9,7 @@ var setAd = function() {
     var adBox = $("#adImgBox");
     adBox.attr("href", url);
     if (adRandom == 0) {
-        adBox.attr("onclick", 'onclick="MtaH5.clickStat("4")"');
+        adBox.attr("onclick", 'MtaH5.clickStat("4")');
     }
     adBox.html(
         '<img src="./images/ad_small' +
