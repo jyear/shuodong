@@ -155,9 +155,10 @@ function drawImage() {
                         wx.ready(function() {
                             var domain = getDomain();
                             var shareData = {
-                                title: "年终总结",
-                                desc:
-                                    "我的2018年终总结已经写好了，快来围观吧！",
+                                title:
+                                    "年终总结 | 我的2018年终总结已经写好了，快来围观吧！",
+                                // desc:
+                                //     "我的2018年终总结已经写好了，快来围观吧！",
                                 link: domain + "/show.html?id=" + data.id,
                                 imgUrl: domain + "/images/summary_logo.jpg",
                                 success: function(res) {

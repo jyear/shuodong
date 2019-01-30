@@ -148,9 +148,10 @@ function drawImage() {
                         wx.ready(function() {
                             var domain = getDomain();
                             var shareData = {
-                                title: "2019会发生的五件事",
-                                desc:
-                                    "惊了，这是我2019会发生这五件事！快来围观吧！",
+                                title:
+                                    "2019会发生的五件事 | 惊了，这是我2019会发生这五件事！快来围观吧！",
+                                // desc:
+                                //     "惊了，这是我2019会发生这五件事！快来围观吧！",
                                 link: domain + "/show.html?id=" + resData.id,
                                 imgUrl: domain + "/images/five_logo.jpg",
                                 success: function(res) {

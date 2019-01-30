@@ -67,8 +67,9 @@ function drawImage() {
                         wx.ready(function() {
                             var domain = getDomain();
                             var shareData = {
-                                title: "新年签",
-                                desc: "新年第一签，我抽中了这个，真是太幸运了!",
+                                title:
+                                    "新年签 | 新年第一签，我抽中了这个，真是太幸运了!",
+                                //desc: "新年第一签，我抽中了这个，真是太幸运了!",
                                 link: domain + "/show.html?id=" + data.id,
                                 imgUrl: domain + "/images/draw_logo.jpg",
                                 success: function(res) {

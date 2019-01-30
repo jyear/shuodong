@@ -416,9 +416,10 @@ function drawImage() {
                         wx.ready(function() {
                             var domain = getDomain();
                             var shareData = {
-                                title: "新年Flag",
-                                desc:
-                                    "我在这里立下了新年flag，来比比谁先实现？",
+                                title:
+                                    "新年Flag | 我在这里立下了新年flag，来比比谁先实现？",
+                                // desc:
+                                //     "我在这里立下了新年flag，来比比谁先实现？",
                                 link: domain + "/show.html?id=" + data.id,
                                 imgUrl: domain + "/images/flag_logo.jpg",
                                 success: function(res) {

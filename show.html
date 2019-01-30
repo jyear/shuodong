@@ -89,8 +89,11 @@
                                 wx.ready(function() {
                                     var domain = getDomain();
                                     var shareData = {
-                                        title: data._desc.split("_")[0],
-                                        desc: getDesc(),
+                                        title:
+                                            data._desc.split("_")[0] +
+                                            " | " +
+                                            getDesc(),
+                                        //desc: getDesc(),
                                         link: window.location.href,
                                         imgUrl:
                                             domain +
